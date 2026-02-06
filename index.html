@@ -10,11 +10,11 @@
 
 <style>
 :root {
-    --primary: #8f5c6a;
-    --accent: #ead7db;
-    --background: #f9f7f8;
-    --highlight: #ffffff;
-    --text-dark: #2f2f2f;
+    --primary: #b76e79;
+    --accent: #e8cfcf;
+    --background: #faf7f7;
+    --highlight: #f3e6dc;
+    --text-dark: #333;
 }
 
 body {
@@ -28,7 +28,7 @@ body {
 
 /* HEADER */
 header {
-    background: linear-gradient(135deg, #8f5c6a, #b98b96);
+    background: linear-gradient(135deg, #b76e79, #d8a7af);
     color: white;
     text-align: center;
     padding: 3rem 1rem;
@@ -242,7 +242,7 @@ footer {
 
 <section id="about" class="fade-in">
     <h2>About Me</h2>
-    <img src="profile.jpg" alt="Ricca Neuda profile photo" class="profile-pic">
+    <img src="profile.png" alt="Ricca Neuda profile photo" class="profile-pic">
     <p>
         I’m Ricca Neuda, a detail-driven Digital Marketing Virtual Assistant with hands-on
         experience supporting marketing teams behind the scenes.
@@ -280,7 +280,7 @@ footer {
 </section>
 
 <section id="experience" class="fade-in">
-    <h2>Work Experience & Proofs</h2>
+    <h2>Work Experiences</h2>
     <ul>
         <li class="experience-item fade-in">
             <strong>Content Planning & Calendar Management</strong>
@@ -336,16 +336,64 @@ footer {
     <h2>Let’s Connect</h2>
     <p>
         Interested in working together or learning more about my experience?
-        I’d love to hear from you.
+        You can either send me a message or book a call directly. I’d love to hear from you!
     </p>
 
-    <form action="mailto:riccaneuda38@gmail.com" method="post" enctype="text/plain">
+    <!-- Email Form -->
+    <form action="mailto:your.email@example.com" method="post" enctype="text/plain">
         <input type="text" placeholder="Your Name" required>
         <input type="email" placeholder="Your Email" required>
         <textarea rows="5" placeholder="Your Message" required></textarea>
         <button type="submit">Send Message</button>
     </form>
+
+    <!-- Book a Call Button -->
+    <div style="text-align:center; margin-top:2rem;">
+        <a href="https://calendly.com/YOUR-CALENDLY-LINK" target="_blank">
+            <button style="background: var(--primary); color: white; border: none; padding: 0.9rem 2rem; border-radius: 30px; font-size: 1rem; cursor: pointer; transition: background 0.2s ease;">
+                📅 Book a Call
+            </button>
+        </a>
+    </div>
 </section>
+<section id="other-contacts" class="fade-in">
+    <h2>Other Ways to Connect</h2>
+    <p>You can also reach me through my professional or social profiles:</p>
+
+    <div class="other-links" style="display:flex; flex-wrap:wrap; gap:1rem; justify-content:center; margin-top:1rem;">
+        <a href="https://www.linkedin.com/in/YOUR-LINKEDIN" target="_blank">
+            <button style="background: var(--primary); color: white; border: none; padding: 0.7rem 1.5rem; border-radius: 30px; cursor:pointer; transition: background 0.2s ease;">
+                LinkedIn
+            </button>
+        </a>
+        <a href="https://www.upwork.com/freelancers/~YOUR-UPWORK" target="_blank">
+            <button style="background: var(--primary); color: white; border: none; padding: 0.7rem 1.5rem; border-radius: 30px; cursor:pointer; transition: background 0.2s ease;">
+                Upwork
+            </button>
+        </a>
+        <a href="https://www.onlinejobs.ph/YOUR-PROFILE" target="_blank">
+            <button style="background: var(--primary); color: white; border: none; padding: 0.7rem 1.5rem; border-radius: 30px; cursor:pointer; transition: background 0.2s ease;">
+                OnlineJobs.ph
+            </button>
+        </a>
+        <a href="https://www.instagram.com/YOUR-INSTAGRAM" target="_blank">
+            <button style="background: var(--primary); color: white; border: none; padding: 0.7rem 1.5rem; border-radius: 30px; cursor:pointer; transition: background 0.2s ease;">
+                Instagram
+            </button>
+        </a>
+        <a href="https://wa.me/YOUR-PHONE-NUMBER" target="_blank">
+            <button style="background: var(--primary); color: white; border: none; padding: 0.7rem 1.5rem; border-radius: 30px; cursor:pointer; transition: background 0.2s ease;">
+                WhatsApp
+            </button>
+        </a>
+        <a href="viber://chat?number=YOUR-PHONE-NUMBER" target="_blank">
+            <button style="background: var(--primary); color: white; border: none; padding: 0.7rem 1.5rem; border-radius: 30px; cursor:pointer; transition: background 0.2s ease;">
+                Viber
+            </button>
+        </a>
+    </div>
+</section>
+
 
 <footer>
     <p>&copy; 2026 Ricca Neuda. All rights reserved.</p>
@@ -367,3 +415,4 @@ document.querySelectorAll('.fade-in').forEach(el => {
 
 </body>
 </html>
+
