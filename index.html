@@ -6,250 +6,309 @@
     <title>Ricca Neuda | Digital Marketing & CRM Portfolio</title>
     <meta name="description" content="Ricca Neuda – Digital Marketing Virtual Assistant specializing in content planning, CRM management, email marketing, and lead generation.">
     <style>
+        :root {
+            --primary: #8f5c6a;
+            --accent: #ead7db;
+            --background: #f9f7f8;
+            --card: #ffffff;
+            --text-dark: #2f2f2f;
+}
         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f4f4f4;
+            line-height: 1.7;
+            color: var(--text-dark);
+            background-color: var(--background);
         }
-        header {
-            background-color: #007bff;
+       header {
+            background: linear-gradient(135deg, #8f5c6a, #b98b96);
             color: white;
             text-align: center;
-            padding: 2.5rem 1rem;
+            padding: 3rem 1rem;
         }
         header h1 {
             margin: 0;
-            font-size: 2.6rem;
+            font-size: 2.7rem;
+            letter-spacing: 0.5px;
         }
         header p {
             font-size: 1.2rem;
             max-width: 800px;
-            margin: 0.5rem auto 0;
+            margin: 0.7rem auto 0;
         }
         .job-banner {
-            background-color: #28a745;
-            color: white;
+            background-color: var(--highlight);
+            color: #6b4a4a;
             text-align: center;
             padding: 1rem;
-            font-weight: bold;
+            font-weight: 600;
         }
         section {
-            max-width: 1200px;
-            margin: 2rem auto;
-            padding: 1.5rem;
+            max-width: 1100px;
+            margin: 3rem auto;
+            padding: 2rem;
             background: white;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
         }
+        .reveal {
+            transform: translateY(35px);
+            transition: transform 0.8s ease;
+}
+
+        .reveal.show {
+            transform: translateY(0);
+}
         h2 {
-            color: #007bff;
-            border-bottom: 2px solid #007bff;
-            padding-bottom: 0.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.9rem;
+            position: relative;
         }
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        li {
-            margin-bottom: 2.5rem;
-        }
-        .profile-pic {
-            max-width: 180px;
-            border-radius: 50%;
+        h2::after {
+            content: "";
+            width: 60px;
+            height: 3px;
+            background: var(--accent);
             display: block;
-            margin: 1.5rem auto;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-        }
-        .experience-item {
-            text-align: center;
-        }
-        .experience-item img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-            margin: 1rem 0;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-        }
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-        .skill {
-            background: #e9ecef;
-            padding: 0.6rem 1.1rem;
-            border-radius: 4px;
-            font-size: 0.95rem;
-        }
-        form {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-        input, textarea {
-            padding: 0.6rem;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-        button {
-            background-color: #007bff;
-            color: white;
-            border: none;
-            padding: 0.8rem;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 1rem;
-        }
-        button:hover {
-            background-color: #0056b3;
-        }
-        footer {
-            text-align: center;
-            padding: 1rem;
-            background: #333;
-            color: white;
-        }
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 2.1rem;
-            }
-            section {
-                margin: 1rem;
-            }
-        }
-    </style>
+            margin-top: 0.5rem;
+            border-radius: 10px;
+}
+
+/* ABOUT */
+.profile-pic {
+    max-width: 180px;
+    border-radius: 50%;
+    display: block;
+    margin: 1.5rem auto;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* EXPERIENCE */
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+.experience-item {
+    background: var(--background);
+    padding: 2rem;
+    border-radius: 14px;
+    margin-bottom: 4rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.experience-item {
+    background: #fbf9fa;
+    padding: 2rem;
+    border-radius: 16px;
+    margin-bottom: 4rem;
+}
+
+.experience-item strong {
+    font-size: 1.3rem;
+    color: var(--primary);
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.experience-item img {
+    display: block;
+    max-width: 100%;
+    border-radius: 14px;
+    margin: 1.6rem auto 0;
+    box-shadow: 0 6px 14px rgba(0,0,0,0.12);
+}
+
+/* WHY HIRE ME */
+.why-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.6rem;
+}
+
+.why-card {
+    background: #fbf9fa;
+    padding: 1.9rem;
+    border-radius: 16px;
+}
+
+.why-card h3 {
+    margin-top: 0;
+    color: var(--primary);
+    font-size: 1.15rem;
+}
+
+
+/* SKILLS */
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.skill {
+    background: var(--accent);
+    padding: 0.7rem 1.2rem;
+    border-radius: 30px;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+/* CONTACT */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+input, textarea {
+    padding: 0.8rem;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+}
+
+button {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 0.9rem;
+    border-radius: 30px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+button:hover {
+    background: #9f5c65;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 2rem;
+    background: #2f2f2f;
+    color: white;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2.2rem;
+    }
+    section {
+        margin: 1.5rem;
+        padding: 1.5rem;
+    }
+}
+ </style>
 </head>
+
 <body>
 
 <header>
     <h1>Ricca Neuda</h1>
     <p>
-        Digital Marketing Virtual Assistant specializing in content operations,
-        CRM management, email marketing, and lead generation support.
+        Digital Marketing Virtual Assistant helping brands stay organized,
+        visible, and connected through content, CRM, and email systems.
     </p>
 </header>
 
 <div class="job-banner">
-    🚀 Actively seeking opportunities in Digital Marketing, CRM Management, and Content Operations
+    ✨ Open to Digital Marketing, CRM Management & Content Operations roles
 </div>
 
+    <section class="fade-in">
 <section id="about">
     <h2>About Me</h2>
 
-    <img src="profile.png" alt="Ricca Neuda profile photo" class="profile-pic">
+    <img src="profile.jpg" alt="Ricca Neuda profile photo" class="profile-pic">
 
     <p>
-        I’m Ricca Neuda, a results-driven Digital Marketing Virtual Assistant with hands-on experience
-        supporting marketing teams through structured execution and reliable systems.
+        I’m Ricca Neuda, a detail-driven Digital Marketing Virtual Assistant with hands-on
+        experience supporting marketing teams behind the scenes.
     </p>
     <p>
-        My strengths lie in content planning, CRM organization, email campaign support,
-        and website lead management — ensuring marketing strategies are executed accurately
-        and consistently.
+        I specialize in content planning, CRM organization, email campaigns,
+        and lead management — making sure strategies don’t just look good,
+        but actually get executed.
     </p>
 </section>
 
+        <section class="fade-in">
 <section id="experience">
-    <h2>Work Experiences</h2>
-    <p>
-        Below are real screenshots from projects I’ve worked on, demonstrating my
-        hands-on experience across digital marketing and CRM workflows.
-    </p>
+    <h2>Work Experience & Proofs</h2>
 
     <ul>
         <li class="experience-item">
             <strong>Content Planning & Calendar Management</strong>
             <p>
-                Managed structured content calendars to ensure consistent posting,
-                campaign alignment, and on-time execution.
-            <p>
-                <img src="content-calendar.png" alt="Content calendar proof">
+                Created and maintained structured content calendars to support
+                consistent posting, campaign alignment, and deadline tracking.
             </p>
+            <img src="content-calendar.png" alt="Content calendar proof">
         </li>
 
+        <section class="fade-in">
         <li class="experience-item">
             <strong>Blog Writing & Content Publishing</strong>
             <p>
-                Assisted in blog creation, formatting, and publishing to support SEO
-                and maintain a consistent brand voice.
-            <p>
-                  <img src="blog-posts.png" alt="Blog posts proof">
+                Assisted with blog creation, formatting, publishing,
+                and content organization to support SEO efforts.
             </p>
+            <img src="blog-posts.png" alt="Blog posts proof">
         </li>
 
+            <section class="fade-in">
         <li class="experience-item">
             <strong>CRM Management (Follow Up Boss)</strong>
             <p>
-                Organized contacts, managed follow-ups, and maintained clean CRM
-                workflows for effective lead tracking.
-            <p>
-                <img src="crm.png" alt="CRM management proof">
+                Managed CRM records, follow-ups, and lead organization
+                to keep pipelines accurate and actionable.
             </p>
+            <img src="crm.png" alt="CRM proof">
         </li>
 
+                <section class="fade-in">
         <li class="experience-item">
-            <strong>Email Campaign Execution</strong>
+            <strong>Email Campaign & Newsletter Support</strong>
             <p>
-                Supported email campaigns including setup, scheduling, and list
-                management using Mailchimp and ActiveCampaign.
-            <p>
-                 <img src="email-campaigns.png" alt="Email campaigns proof">
+                Assisted with email setup, scheduling, list management,
+                and newsletter distribution across platforms.
             </p>
-        </li>
-
-        <li class="experience-item">
-            <strong>Website Lead Management</strong>
-            <p>
-                Monitored incoming website leads and ensured proper CRM entry
-                and follow-up workflows.
-            <p>
-                <img src="website-leads.png" alt="Website leads proof">
-            </p>
-        </li>
-
-        <li class="experience-item">
-            <strong>Email Newsletter Design & Scheduling</strong>
-            <p>
-                Assisted in designing and scheduling newsletters that supported
-                brand consistency and audience engagement.
-            <p>
-                <img src="email-newsletters.png" alt="Email newsletters proof">
-            </p>
+            <img src="email-campaigns.png" alt="Email campaigns proof">
         </li>
     </ul>
 </section>
 
+                <section class="fade-in">
 <section id="skills">
     <h2>Core Skills & Tools</h2>
     <div class="skills">
         <div class="skill">CRM Management (Follow Up Boss)</div>
-        <div class="skill">Content Calendars & Blog Publishing</div>
-        <div class="skill">Email Marketing (Mailchimp, ActiveCampaign, Flodesk)</div>
-        <div class="skill">Website Content & Lead Management</div>
-        <div class="skill">SEO Basics & Analytics</div>
-        <div class="skill">Task & Project Coordination</div>
+        <div class="skill">Content Calendars</div>
+        <div class="skill">Email Marketing Platforms</div>
+        <div class="skill">Blog Publishing</div>
+        <div class="skill">Lead Management</div>
+        <div class="skill">Marketing Support</div>
     </div>
 </section>
 
+                    <section class="fade-in">
 <section id="contact">
-    <h2>Contact Me</h2>
+    <h2>Let’s Connect</h2>
     <p>
         Interested in working together or learning more about my experience?
-        Feel free to reach out.
+        I’d love to hear from you.
     </p>
+
     <form action="mailto:riccaneuda38@gmail.com" method="post" enctype="text/plain">
-        <input type="text" name="name" placeholder="Your Name" required>
-        <input type="email" name="email" placeholder="Your Email" required>
-        <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea rows="5" placeholder="Your Message" required></textarea>
         <button type="submit">Send Message</button>
     </form>
-    <p>
-        Connect with me on LinkedIn:
-        <a href="https://www.linkedin.com/in/ricca-neuda-217904287/" target="_blank">View Profile</a>
-    </p>
 </section>
 
 <footer>
