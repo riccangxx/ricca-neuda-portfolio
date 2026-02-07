@@ -66,9 +66,10 @@ section {
 section.alt { background: var(--alt-bg); }
 .container {
   max-width: 1200px;
-  margin: auto;
-  padding: 0 6vw;
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 4vw, 3rem);
 }
+
 
 /* NAV */
 header { display: flex; justify-content: space-between; align-items: center; padding: 2rem 6vw; font-size: 20px; }
@@ -182,8 +183,52 @@ nav a:hover { transform: scale(1.05); }
 
 
 /* ABOUT */
-.about-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 3rem; align-items: start; }
-.strength-card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 1.5rem; margin-bottom: 1rem; }
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+}
+.about-content {
+  position: relative;
+}
+
+.strength-card {
+  position: relative;
+  z-index: 1;
+  pointer-events: auto;
+}
+
+.about-header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 3rem;
+}
+
+.section-label {
+  display: inline-block;
+  margin-bottom: 0.75rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+
+.strength-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.strength-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 30px rgba(0,0,0,0.08);
+}
 
 /* SERVICES */
 .service-card { display: flex; flex-direction: column; align-items: center; background: var(--surface); border: 1px solid var(--border); border-radius: 20px; padding: 2rem; transition: transform .3s; cursor: pointer; text-align: center; }
@@ -250,10 +295,17 @@ footer a:hover { transform: translateY(-3px) scale(1.05); }
 footer .bottom { width:100%; margin-top:2rem; border-top:1px solid var(--border); padding-top:1rem; color:#bbb; text-align:center; }
 
 /* RESPONSIVE */
-@media(max-width:900px){
-  .hero-grid { grid-template-columns: 1fr; }
-  .about-grid { grid-template-columns: 1fr; }
+@media (max-width: 900px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-content {
+    grid-template-columns: 1fr;
+  }
 }
+
+
 /* CONTACT MODAL */
 .modal {
   display: none;
@@ -382,21 +434,57 @@ footer .bottom { width:100%; margin-top:2rem; border-top:1px solid var(--border)
 <!-- ABOUT -->
 <section id="about" class="alt" data-aos="fade-up">
   <div class="container">
- <section className="about">
-  <span className="section-label">About Me</span>
+    
+   <div class="about-header">
+  <span class="section-label">About Me</span>
 
-  <h2>About Me</h2>
-  <div class="about-grid">
-    <div>
-      <p>Hello! I'm <strong>Ricca Neuda</strong>, a professional virtual assistant with a passion for helping business owners streamline their operations and scale efficiently. With over 5 years of experience, I specialize in content creation, project management, and marketing support. I turn your to-do list into done so you can focus on what matters most—growing your business.</p>
-    </div>
-    <div>
-      <div class="strength-card"><strong>💖 Genuinely Invested</strong><p>Your success is my success. I'm not just completing tasks — I'm helping build your dream.</p></div>
-      <div class="strength-card"><strong>🔍 Detail-Oriented</strong><p>Nothing falls through the cracks. I catch what others miss and deliver excellence every time.</p></div>
-      <div class="strength-card"><strong>⚡ Proactive & Fast</strong><p>I don't wait to be told. I see opportunities, solve problems, and keep momentum going.</p></div>
+  <h2 class="section-title">
+    Hi, I'm Ricca — your partner in growth
+  </h2>
+</div>
+
+<div class="about-content">
+      <div>
+        <p>
+          I've spent years mastering the art of making busy entrepreneurs'
+          lives easier. What started as a passion for organization and creative
+          problem-solving has evolved into a career I absolutely love — helping
+          ambitious business owners scale without burning out.
+        </p>
+
+        <p>
+          I'm not just another virtual assistant checking boxes. I'm the
+          proactive partner who anticipates your needs, solves problems before
+          they arise, and genuinely celebrates your wins.
+        </p>
+
+        <p>
+          What makes me different? I bring a perfect blend of creativity and
+          organization. I treat your business like it's my own.
+        </p>
+      </div>
+
+      <div class="strengths">
+        <div class="strength-card">
+          <strong>💖 Genuinely Invested</strong>
+          <p>Your success is my success.</p>
+        </div>
+
+        <div class="strength-card">
+          <strong>🔍 Detail-Oriented</strong>
+          <p>I catch what others miss.</p>
+        </div>
+
+        <div class="strength-card">
+          <strong>⚡ Proactive & Fast</strong>
+          <p>I move before things stall.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
+
+
 
 <!-- PORTFOLIO -->
 <section id="work" data-aos="fade-up">
