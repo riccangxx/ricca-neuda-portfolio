@@ -173,6 +173,89 @@ footer .bottom { width:100%; margin-top:2rem; border-top:1px solid var(--border)
   .hero-grid { grid-template-columns: 1fr; }
   .about-grid { grid-template-columns: 1fr; }
 }
+/* CONTACT MODAL */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.6);
+  z-index: 999;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.modal.show {
+  display: flex;
+  opacity: 1;
+}
+
+
+.modal-content {
+  background: var(--surface);
+  padding: 2.5rem;
+  border-radius: 24px;
+  max-width: 500px;
+  width: 90%;
+  box-shadow: 0 30px 60px rgba(0,0,0,.25);
+}
+
+.modal h2 {
+  margin-top: 0;
+}
+
+.modal input,
+.modal textarea {
+  width: 100%;
+  padding: .9rem;
+  margin-bottom: 1rem;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  font-family: inherit;
+  font-size: .95rem;
+}
+
+.modal textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.modal button {
+  width: 100%;
+  padding: .9rem;
+  background: var(--button);
+  color: var(--bg);
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  font-size: .95rem;
+}
+
+.modal button:hover {
+  opacity: .9;
+}
+
+.close {
+  float: right;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+/* MODAL ANIMATION */
+.modal-content {
+  animation: popIn 0.3s ease;
+}
+
+@keyframes popIn {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
 
 </style>
 </head>
@@ -389,7 +472,7 @@ footer .bottom { width:100%; margin-top:2rem; border-top:1px solid var(--border)
 <h2>Let's Work Together</h2>
 <p>Ready to get your time back? Let's chat about how I can support your business and help you focus on what you do best. No pressure, just a friendly conversation about your goals and how I can help you achieve them.</p>
 <p>I typically respond within 24 hours.</p>
-<a href="mailto:riccaneuda38@gmail.com">Let's Connect</a>
+<a href="#" onclick="openModal()" class="cta">Let's Connect</a>
 </div>
 </section>
 
@@ -418,6 +501,24 @@ footer .bottom { width:100%; margin-top:2rem; border-top:1px solid var(--border)
 </div>
 </footer>
 
+<div id="contact-modal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">×</span>
+
+    <h2>Let’s Connect</h2>
+    <p>Tell me a bit about what you need help with.</p>
+
+    <form id="contact-form">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" placeholder="Your message..." required></textarea>
+
+      <button type="submit">Send Message</button>
+      <p id="form-status"></p>
+    </form>
+  </div>
+</div>
+
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 <script>
 AOS.init({ once: true, duration: 800, offset: 120 });
@@ -425,6 +526,51 @@ function toggleTheme(){
   document.body.dataset.theme = document.body.dataset.theme === 'dark' ? '' : 'dark';
 }
 </script>
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+  (function() {
+    emailjs.init("_a6T9vTgeLEpDgJR0");
+  })();
+</script>
+<script>
+function openModal() {
+  const modal = document.getElementById("contact-modal");
+  modal.classList.add("show");
+}
+
+function closeModal() {
+  const modal = document.getElementById("contact-modal");
+  modal.classList.remove("show");
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.getElementById("contact-form");
+
+  if (!form) return;
+
+  form.addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const status = document.getElementById("form-status");
+    status.textContent = "Sending...";
+
+    emailjs.sendForm(
+      "service_l4ixmrw",
+      "template_qgiqzju",
+      this
+    ).then(() => {
+      status.textContent = "Message sent successfully 💌";
+      this.reset();
+      setTimeout(closeModal, 2000);
+    }).catch((error) => {
+      status.textContent = "Something went wrong. Please try again.";
+      console.error(error);
+    });
+  });
+});
+</script>
+
+
+
 </body>
 </html>
-
