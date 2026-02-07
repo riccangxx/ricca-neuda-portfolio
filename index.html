@@ -247,7 +247,10 @@ footer {
 }
 /* ===== NAV BUTTONS ===== */
 .nav {
-    background: rgba(0,0,0,0.4); /* semi-transparent dark background */
+    position: absolute; /* position relative to .slider */
+    top: 50%;           /* vertically center */
+    transform: translateY(-50%); /* adjust exact middle */
+    background: rgba(0,0,0,0.4); 
     color: white;
     border: none;
     font-size: 2.5rem;
@@ -256,11 +259,21 @@ footer {
     cursor: pointer;
     user-select: none;
     transition: background 0.2s ease;
+    z-index: 10; /* make sure it’s above the image */
+}
+
+.nav.prev {
+    left: 10px; /* distance from the left side */
+}
+
+.nav.next {
+    right: 10px; /* distance from the right side */
 }
 
 .nav:hover {
     background: rgba(0,0,0,0.7);
 }
+
 
 /* ===== SLIDE DOTS ===== */
 .slide-dot {
@@ -274,6 +287,13 @@ footer {
     transition: background 0.3s ease;
 }
 
+.slider {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .slide-dot.active {
     background-color: var(--primary);
 }
@@ -285,6 +305,7 @@ footer {
     object-fit: contain;
     border-radius: 12px;
 }
+
 
 </style>
 
