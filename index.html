@@ -56,9 +56,15 @@ h3 { font-size: 1.7rem; margin-bottom: 0.8rem; }
 .info-text { font-family: 'Roboto Mono', monospace; color: var(--accent); font-size: 0.8rem; display: block; margin-top: .3rem; }
 
 /* SECTIONS */
-section { padding: 6rem 6vw; }
+section {
+  padding: 6rem 0;
+}
 section.alt { background: var(--alt-bg); }
-.container { max-width: 1200px; margin: auto; }
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 6vw;
+}
 
 /* NAV */
 header { display: flex; justify-content: space-between; align-items: center; padding: 2rem 6vw; font-size: 20px; }
@@ -68,9 +74,22 @@ nav a:hover { transform: scale(1.05); }
 .toggle { cursor: pointer; border: 1px solid var(--border); padding: .5rem .9rem; border-radius: 8px; margin-left: 1rem; }
 
 /* HERO */
-.hero { display: grid; grid-template-columns: 1.2fr 1fr; gap: 4rem; align-items: center; }
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 4rem;
+  align-items: center;
+}
 .badge { display: inline-block; padding: .5rem 1.2rem; border: 1px solid var(--border); border-radius: 999px; margin-bottom: 1rem; font-size: 1rem; }
 .hero img { width: 100%; border-radius: 24px; box-shadow: 0 30px 60px rgba(0,0,0,.08); }
+.hero-image img {
+  max-width: 420px;
+  margin-left: auto;
+}
+.hero-text {
+  max-width: 560px;
+}
+
 .buttons a { margin-right: 1rem; }
 .outline { border: 1px solid var(--border); padding: .7rem 1.4rem; border-radius: 999px; color: var(--text); text-decoration: none; }
 .profile-photo {
@@ -151,9 +170,10 @@ footer .bottom { width:100%; margin-top:2rem; border-top:1px solid var(--border)
 
 /* RESPONSIVE */
 @media(max-width:900px){
-  .hero { grid-template-columns: 1fr; }
+  .hero-grid { grid-template-columns: 1fr; }
   .about-grid { grid-template-columns: 1fr; }
 }
+
 </style>
 </head>
 <body>
@@ -172,21 +192,30 @@ footer .bottom { width:100%; margin-top:2rem; border-top:1px solid var(--border)
 </header>
 
 <!-- HERO -->
-<section class="hero container" data-aos="fade-up">
-  <div>
-    <span class="badge">Your Creative Right Hand</span>
-    <h1>I help business owners <span style="color:var(--accent)">scale their vision</span><br>without the overwhelm</h1>
-    <p>Virtual assistant, content creator, and marketing support specialist who turns your to-do list into done.</p>
-    <div class="buttons">
-      <a href="#contact" class="cta">Hire Me</a>
-      <a href="#work" class="outline">View My Work</a>
+<section class="hero" data-aos="fade-up">
+  <div class="container hero-grid">
+
+    <div class="hero-text">
+      <span class="badge">Your Creative Right Hand</span>
+      <h1>I help business owners <span style="color:var(--accent)">scale their vision</span><br>without the overwhelm</h1>
+      <p>Virtual assistant, content creator, and marketing support specialist who turns your to-do list into done.</p>
+      <div class="buttons">
+        <a href="#contact" class="cta">Hire Me</a>
+        <a href="#work" class="outline">View My Work</a>
+      </div>
     </div>
+
+    <div class="hero-image">
+     <img src="profile.png" alt="Ricca Neuda" class="profile-photo">
+    </div>
+
   </div>
-  <img src="profile.png" alt="Ricca Neuda" />
 </section>
 
+
 <!-- ABOUT -->
-<section id="about" class="container alt" data-aos="fade-up">
+<section id="about" class="alt" data-aos="fade-up">
+  <div class="container">
   <h2>About Me</h2>
   <div class="about-grid">
     <div>
@@ -201,7 +230,8 @@ footer .bottom { width:100%; margin-top:2rem; border-top:1px solid var(--border)
 </section>
 
 <!-- PORTFOLIO -->
-<section id="work" class="container" data-aos="fade-up">
+<section id="work" data-aos="fade-up">
+  <div class="container">
 <h2>Portfolio - Recent Work & Results</h2>
 <p>Note: Representative examples of my work. Actual project details are confidential to protect client privacy.</p>
 
@@ -288,7 +318,8 @@ footer .bottom { width:100%; margin-top:2rem; border-top:1px solid var(--border)
 </section>
 
 <!-- SERVICES -->
-<section id="services" class="container alt" data-aos="fade-up">
+<section id="services" class="alt" data-aos="fade-up">
+  <div class="container">
 <h2>Services</h2>
 <div class="grid">
 <div class="service-card"><span class="emoji">📧</span><h3>Virtual Assistance</h3><p>Manage emails, calendars, client communications, and day-to-day operations so you can focus on strategic growth.</p></div>
@@ -299,7 +330,8 @@ footer .bottom { width:100%; margin-top:2rem; border-top:1px solid var(--border)
 </section>
 
 <!-- TOOLS & SKILLS -->
-<section id="tools" class="container" data-aos="fade-up">
+<section id="tools" data-aos="fade-up">
+  <div class="container">
 <h2>Tools & Skills</h2>
 <p>I'm platform-agnostic and quick to learn. If you use something not listed here, I'll get up to speed fast.</p>
 <div class="tools-grid">
@@ -338,7 +370,8 @@ footer .bottom { width:100%; margin-top:2rem; border-top:1px solid var(--border)
 </section>
 
 <!-- PROCESS -->
-<section id="process" class="container alt" data-aos="fade-up">
+<section id="process" class="alt" data-aos="fade-up">
+  <div class="container">
 <h2>Process: How We Will Work Together</h2>
 <p>Simple, transparent, and designed to get you results fast.</p>
 <div class="grid">
@@ -350,7 +383,8 @@ footer .bottom { width:100%; margin-top:2rem; border-top:1px solid var(--border)
 </section>
 
 <!-- LET'S WORK TOGETHER -->
-<section id="contact" class="container" data-aos="fade-up">
+<section id="contact" data-aos="fade-up">
+  <div class="container">
 <div class="contact-center">
 <h2>Let's Work Together</h2>
 <p>Ready to get your time back? Let's chat about how I can support your business and help you focus on what you do best. No pressure, just a friendly conversation about your goals and how I can help you achieve them.</p>
@@ -375,7 +409,7 @@ footer .bottom { width:100%; margin-top:2rem; border-top:1px solid var(--border)
 </div>
 <div>
 <strong>Connect</strong>
-<a href="mailto:ricca.neuda@example.com">Email</a>
+<a href="mailto:riccaneuda38@gmail.com">Email</a>
 <p>Based in: Available for remote work</p>
 <p>Availability: Accepting new clients</p>
 </div>
@@ -393,5 +427,4 @@ function toggleTheme(){
 </script>
 </body>
 </html>
-
 
