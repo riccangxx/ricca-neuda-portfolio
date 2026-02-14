@@ -462,43 +462,35 @@ footer .bottom { width:100%; margin-top:2rem; border-top:1px solid var(--border)
   /* MOBILE NAVIGATION */
 @media (max-width: 768px) {
   header {
-    flex-direction: row;
+    flex-direction: row;       /* keep logo + toggle in a row */
     justify-content: space-between;
     align-items: center;
     padding: 1.5rem clamp(1rem, 4vw, 2rem);
-    position: relative;
-    z-index: 10;
   }
 
   nav {
-    display: none;             /* hide menu by default */
-    flex-direction: column;
-    position: absolute;        /* float above content */
-    top: 100%;                 /* just below header */
-    left: 0;
-    right: 0;
-    background: var(--bg);
-    padding: 1rem 2rem;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-    border-radius: 0 0 16px 16px;
-    z-index: 100;
+    display: none;             /* hide links by default on mobile */
+    flex-direction: column;    /* stack links vertically when visible */
+    width: 100%;
+    margin-top: 0.5rem;
   }
 
   nav.show {
-    display: flex;
+    display: flex;             /* show links when toggled */
   }
 
   nav a {
-    margin: 0.75rem 0;
-    font-size: 1rem;
+    margin: 0.5rem 0;          /* spacing between links */
+    font-size: 1rem;           /* smaller font on mobile */
   }
 
   .toggle {
-    display: inline-block;
+    display: inline-block;     /* show hamburger / toggle button */
     cursor: pointer;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
   }
 }
+
 
 
 
@@ -508,9 +500,8 @@ footer .bottom { width:100%; margin-top:2rem; border-top:1px solid var(--border)
 
 <header>
   <strong>Ricca Neuda</strong>
-  
-  <span class="toggle" onclick="toggleMenu()">☰</span>  <!-- Hamburger menu -->
-  <span class="toggle" onclick="toggleTheme()">🌙</span> <!-- Dark mode -->
+
+  <span class="toggle" onclick="toggleMenu()">☰</span> <!-- Hamburger here -->
 
   <nav>
     <a href="#about">About</a>
@@ -520,7 +511,10 @@ footer .bottom { width:100%; margin-top:2rem; border-top:1px solid var(--border)
     <a href="#process">Process</a>
     <a href="#contact" class="cta">Let's Talk</a>
   </nav>
+
+  <span class="toggle" onclick="toggleTheme()">🌙</span> <!-- Dark mode stays here -->
 </header>
+
 
 
   </nav>
@@ -893,6 +887,7 @@ function toggleMenu() {
 
 </body>
 </html>
+
 
 
 
