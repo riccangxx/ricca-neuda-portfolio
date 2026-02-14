@@ -106,6 +106,7 @@ nav a:hover { transform: scale(1.05); }
 .toggle { cursor: pointer; border: 1px solid var(--border); padding: .5rem .9rem; border-radius: 8px; margin-left: 1rem; }
 
 /* HERO */
+/* HERO */
 .hero h1 {
   color: #1a1a1a;
   font-family: 'Playfair Display', serif;
@@ -115,46 +116,63 @@ nav a:hover { transform: scale(1.05); }
   letter-spacing: -0.02em;
 }
 
-/* switch grid to flex for natural photo flow */
+/* Use flex for natural side-by-side flow */
 .hero-grid {
   display: flex;
   align-items: center;
   gap: 4rem;
-  background: transparent;
-  flex-wrap: nowrap;      /* prevent photo from dropping below */
+  background: transparent;  /* remove any container background */
+  flex-wrap: wrap;          /* allows stacking on small screens */
 }
-
 
 /* text container */
 .hero-text {
-  max-width: 560px;       /* keeps text constrained */
-  flex: 1;                /* allows text to take available space */
+  flex: 1;                  /* text takes available space */
+  max-width: 560px;         /* constrain width */
+  background: transparent;  /* remove any box */
+  padding: 0;
+  margin: 0;
 }
 
+/* image container */
 .hero-image {
-  flex-shrink: 0;         /* prevents image from shrinking too much */
-  width: auto;             /* natural image width */
+  flex-shrink: 0;            /* prevent image from shrinking */
+  width: auto;
   max-width: 420px;
   display: flex;
   align-items: center;
   justify-content: center;
+  background: transparent;   /* remove any box */
+  padding: 0;
+  margin: 0;
+  box-shadow: none;          /* remove all shadows */
 }
 
+/* profile photo itself */
+.profile-photo {
+  width: auto;
+  max-width: 100%;
+  border-radius: 0;           /* keep rectangular if needed */
+  box-shadow: none;           /* no shadow on the photo */
+  display: block;
+  filter: none;               /* no blur or brightness adjustments */
+  transition: none;           /* no hover effects */
+}
 
-/* badge styling remains */
+/* badge text */
 .badge {
   display: inline-block;
   padding: .5rem 1.2rem;
-  border: 1px solid var(--border);
   border-radius: 999px;
-  margin-bottom: 1rem;
+  background: transparent;
+  border: none;
   font-size: 1rem;
+  margin-bottom: 1rem;
 }
 
 /* highlight text */
 .hero .highlight {
   color: var(--accent);
-  display: inline-block;
 }
 
 /* hero description */
@@ -167,14 +185,14 @@ nav a:hover { transform: scale(1.05); }
   max-width: 480px;
 }
 
-/* outline button */
+/* buttons */
 .outline {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   height: 60px;
   padding: 16px 32px;
-  font-family: 'Inter', system-ui, sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 1rem;
   font-weight: 600;
   line-height: 1.5;
@@ -193,21 +211,18 @@ nav a:hover { transform: scale(1.05); }
   transform: translateY(-1px);
 }
 
-/* profile photo */
-.profile-photo {
-  width: auto;                  /* natural width */
-  max-width: 420px;
-  border-radius: 0;             /* keep rectangular */
-  box-shadow: 0 20px 40px rgba(0,0,0,0.08); /* subtle depth */
-  display: block;
-  filter: none;                 /* no blur, brightness, contrast changes */
-  transition: transform 0.3s ease;
+/* responsive for small screens */
+@media (max-width: 900px) {
+  .hero-grid {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .hero-image {
+    max-width: 100%;
+  }
 }
 
-/* optional hover for floating effect */
-.profile-photo:hover {
-  transform: translateY(-5px);
-}
 
 
 
@@ -812,6 +827,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 </body>
 </html>
+
 
 
 
