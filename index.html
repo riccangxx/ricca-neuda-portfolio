@@ -603,6 +603,112 @@ nav a.cta {
   }
 }
 
+.carousel {
+  position: relative;
+  overflow: hidden;
+  max-width: 900px;
+  margin: 2rem auto;
+  border-radius: 16px;
+  background: var(--surface);
+  padding: 1.5rem;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.slide {
+  display: flex; /* flex is better than none for fade effect */
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.slide.active {
+  opacity: 1;
+  transform: scale(1);
+  position: relative;
+}
+
+
+.slide-image {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+}
+
+.slide-info h3 {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.carousel-nav {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.carousel-nav button {
+  padding: 0.5rem 1rem;
+  border: none;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 600;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.carousel-nav button:hover {
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .slide-image { max-height: 250px; }
+  .carousel { padding: 1rem; }
+}
+
+.carousel-dots {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.carousel-dots .dot {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  background: var(--border);
+  border-radius: 50%;
+  margin: 0 6px;
+  cursor: pointer;
+  transition: background 0.25s ease, transform 0.2s ease;
+}
+
+.carousel-dots .dot.active {
+  background: var(--accent);
+  transform: scale(1.2);
+}
+
+.carousel-dots .dot:hover {
+  transform: scale(1.3);
+}
+
+
+/* Keep the carousel container relative so slides overlap */
+.carousel {
+  position: relative;
+  overflow: hidden;
+}
+.slide-image {
+  border-radius: 12px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+}
 
 
 </style>
@@ -727,111 +833,99 @@ nav a.cta {
 
 
 
-<!-- PORTFOLIO -->
+<!-- PORTFOLIO: Interactive Carousel -->
 <section id="work" data-aos="fade-up">
   <div class="container">
-    <h2>Portfolio - Recent Work & Results</h2>
-    <p>Note: Representative examples of my work. Actual project details are confidential to protect client privacy.</p>
+    <h2>Portfolio: My Work & Proofs</h2>
+    <p>Click through to see examples of my work and the tools I used.</p>
 
-    <div class="grid">
-
-      <!-- Social Media & Content Strategy -->
-      <div class="card">
-        <span class="tool-pill">Social Media & Content Strategy</span>
-        <h3>Brand Social Media Management & Content Calendar</h3>
-        <p>Managed brand social media accounts while building a structured content calendar to support consistent posting and engagement.</p>
-        <hr>
-
-        <p class="info-text">Tools used:</p>
-        <span class="tool-pill">Canva</span>
-        <span class="tool-pill">Later</span>
-        <span class="tool-pill">Meta Business Suite</span>
-        <span class="tool-pill">Instagram</span>
-        <span class="tool-pill">Facebook</span>
-        <span class="tool-pill">LinkedIn</span>
-        <span class="tool-pill">YouTube</span>
-
-        <p class="info-text">✔️ Enabled consistent, planned posting and a cohesive brand presence across multiple platforms.</p>
+    <div class="carousel">
+      <!-- Slide 1: Email Marketing -->
+      <div class="slide active">
+        <img src="proof-email.png" alt="Email Marketing Sample" class="slide-image">
+        <div class="slide-info">
+          <span class="tool-pill">Email Marketing</span>
+          <h3>Newsletter & Drip Campaigns</h3>
+          <p>Planned and managed newsletters and automated drip campaigns to support consistent communication and engagement.</p>
+          <p class="info-text">Tools: Mailchimp, Flodesk, Canva, Built-in Analytics</p>
+        </div>
       </div>
 
-      <!-- Email Marketing -->
-      <div class="card">
-        <span class="tool-pill">Email Marketing</span>
-        <h3>Newsletter & Drip Campaign Management</h3>
-        <p>Planned and managed newsletters and automated drip campaigns to support consistent communication and engagement.</p>
-        <hr>
-
-        <p class="info-text">Tools used:</p>
-        <span class="tool-pill">Mailchimp</span>
-        <span class="tool-pill">Flodesk</span>
-        <span class="tool-pill">Canva</span>
-        <span class="tool-pill">Built-in Analytics</span>
-
-        <p class="info-text">✔️ Managed subscriber lists of 1,400–4,600+ contacts while maintaining engagement through recurring and automated campaigns.</p>
+      <!-- Slide 2: Social Media -->
+      <div class="slide">
+        <img src="proof-socialmedia.png" alt="Social Media Sample" class="slide-image">
+        <div class="slide-info">
+          <span class="tool-pill">Social Media</span>
+          <h3>Brand Social Media Management</h3>
+          <p>Managed brand social media accounts with structured content calendars for consistent posting and engagement.</p>
+          <p class="info-text">Tools: Canva, Later, Meta Business Suite, Instagram, Facebook, LinkedIn, YouTube</p>
+        </div>
       </div>
 
-      <!-- CRM & Lead Management -->
-      <div class="card">
-        <span class="tool-pill">CRM & Lead Management</span>
-        <h3>Lead Tracking & Follow-Up Support</h3>
-        <p>Maintained and organized CRM records to support consistent lead follow-ups and clean sales pipelines.</p>
-        <hr>
-
-        <p class="info-text">Tools used:</p>
-        <span class="tool-pill">Follow Up Boss</span>
-        <span class="tool-pill">Google Sheets</span>
-
-        <p class="info-text">✔️ Kept lead pipelines organized and follow-ups on track to support sales workflow efficiency.</p>
+      <!-- Slide 3: CRM & Lead Management -->
+      <div class="slide">
+        <img src="proof-crm.png" alt="CRM Sample" class="slide-image">
+        <div class="slide-info">
+          <span class="tool-pill">CRM & Lead Mgmt</span>
+          <h3>Lead Tracking & Follow-Up</h3>
+          <p>Maintained and organized CRM records for smooth follow-ups and clean sales pipelines.</p>
+          <p class="info-text">Tools: Follow Up Boss, Google Sheets</p>
+        </div>
       </div>
 
-      <!-- Real Estate VA -->
-      <div class="card">
-        <span class="tool-pill">Real Estate Virtual Assistance</span>
-        <h3>Listing & Marketing Support</h3>
-        <p>Provided backend and marketing assistance for a real estate broker, supporting property promotions and client coordination.</p>
-        <hr>
-
-        <p class="info-text">Tools used:</p>
-        <span class="tool-pill">TourFactory</span>
-        <span class="tool-pill">Follow Up Boss</span>
-        <span class="tool-pill">MLS Listing Website</span>
-
-        <p class="info-text">✔️ Supported smooth property marketing through organized listings, virtual tours, and client data management.</p>
+      <!-- Slide 4: Real Estate VA -->
+      <div class="slide">
+        <img src="proof-re.png" alt="Real Estate Sample" class="slide-image">
+        <div class="slide-info">
+          <span class="tool-pill">Real Estate VA</span>
+          <h3>Listing & Marketing Support</h3>
+          <p>Provided backend and marketing assistance for a real estate broker, supporting property promotions and client coordination.</p>
+          <p class="info-text">Tools: TourFactory, Follow Up Boss, MLS Listing Website</p>
+        </div>
       </div>
 
-      <!-- Digital Marketing Support -->
-      <div class="card">
-        <span class="tool-pill">Digital Marketing Support</span>
-        <h3>Performance Tracking & Reporting</h3>
-        <p>Monitored campaign and content performance using native analytics dashboards within websites, email platforms, and social media channels.</p>
-        <hr>
-
-        <p class="info-text">Tools used:</p>
-        <span class="tool-pill">Website Built-in Analytics</span>
-        <span class="tool-pill">Meta Business Suite</span>
-        <span class="tool-pill">Flodesk</span>
-        <span class="tool-pill">Mailchimp</span>
-
-        <p class="info-text">✔️ Provided clear visibility into engagement and performance to support informed content and email decisions.</p>
+      <!-- Slide 5: Digital Marketing Support -->
+      <div class="slide">
+        <img src="proof-digital.png" alt="Digital Marketing Sample" class="slide-image">
+        <div class="slide-info">
+          <span class="tool-pill">Digital Marketing</span>
+          <h3>Performance Tracking & Reporting</h3>
+          <p>Monitored campaign and content performance using analytics dashboards within websites, email platforms, and social media channels.</p>
+          <p class="info-text">Tools: Website Analytics, Meta Business Suite, Flodesk, Mailchimp</p>
+        </div>
       </div>
 
-      <!-- Process & Workflow Support -->
-      <div class="card">
-        <span class="tool-pill">Process & Workflow Support</span>
-        <h3>Operational Task & System Support</h3>
-        <p>Supported internal workflows by following structured systems and standard operating procedures.</p>
-        <hr>
-
-        <p class="info-text">Tools used:</p>
-        <span class="tool-pill">Google Sheets</span>
-        <span class="tool-pill">Google Workspace</span>
-
-        <p class="info-text">✔️ Supported reliable and consistent task execution through organized systems and workflow adherence.</p>
+      <!-- Slide 6: Process & Workflow -->
+      <div class="slide">
+        <img src="proof-process.png" alt="Process & Workflow Sample" class="slide-image">
+        <div class="slide-info">
+          <span class="tool-pill">Process & Workflow</span>
+          <h3>Operational Task & System Support</h3>
+          <p>Supported internal workflows by following structured systems and standard operating procedures.</p>
+          <p class="info-text">Tools: Google Sheets, Google Workspace</p>
+        </div>
       </div>
 
+      <!-- Navigation -->
+      <div class="carousel-nav">
+        <button class="prev">← Previous</button>
+        <button class="next">Next →</button>
+      </div>
+
+ <!-- Dots Indicators -->
+  <div class="carousel-dots">
+    <span class="dot active" data-slide="0"></span>
+    <span class="dot" data-slide="1"></span>
+    <span class="dot" data-slide="2"></span>
+    <span class="dot" data-slide="3"></span>
+    <span class="dot" data-slide="4"></span>
+    <span class="dot" data-slide="5"></span>
+  </div>
+</div>
     </div>
   </div>
 </section>
+
 
 
 <!-- SERVICES -->
@@ -1031,20 +1125,66 @@ function closeNavOnClickOutside(e) {
 
 </script>
 
+<script>
+  const slides = document.querySelectorAll(".slide");
+const dots = document.querySelectorAll(".dot");
+let currentSlide = 0;
+let slideInterval = 7000; // 10 seconds per slide
+let autoPlayTimer;
+
+function showSlide(index) {
+  slides.forEach(slide => slide.classList.remove("active"));
+  dots.forEach(dot => dot.classList.remove("active"));
+
+  slides[index].classList.add("active");
+  dots[index].classList.add("active");
+  currentSlide = index;
+
+  // Reset the auto-play timer every time a slide changes
+  resetAutoPlay();
+}
+
+// Next & Prev buttons
+document.querySelector(".next").addEventListener("click", () => {
+  let nextSlide = (currentSlide + 1) % slides.length;
+  showSlide(nextSlide);
+});
+
+document.querySelector(".prev").addEventListener("click", () => {
+  let prevSlide = (currentSlide - 1 + slides.length) % slides.length;
+  showSlide(prevSlide);
+});
+
+// Click dots to jump to a slide
+dots.forEach(dot => {
+  dot.addEventListener("click", () => {
+    const index = parseInt(dot.dataset.slide);
+    showSlide(index);
+  });
+});
+
+// Auto-play function
+function startAutoPlay() {
+  autoPlayTimer = setInterval(() => {
+    let nextSlide = (currentSlide + 1) % slides.length;
+    showSlide(nextSlide);
+  }, slideInterval);
+}
+
+// Reset auto-play
+function resetAutoPlay() {
+  clearInterval(autoPlayTimer);
+  startAutoPlay();
+}
+
+// Start auto-play initially
+startAutoPlay();
+
+</script>
 
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
 
 
 
