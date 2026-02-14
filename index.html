@@ -116,16 +116,26 @@ nav a:hover { transform: scale(1.05); }
 }
 .hero-grid {
   display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
+  grid-template-columns: 1.2fr auto;  /* text + image */
   gap: 4rem;
   align-items: center;
+  background: transparent;   /* make grid background transparent */
 }
+
+.hero-text, .hero-image {
+  background: transparent;   /* remove any container box */
+}
+
 .badge { display: inline-block; padding: .5rem 1.2rem; border: 1px solid var(--border); border-radius: 999px; margin-bottom: 1rem; font-size: 1rem; }
 .hero img { width: 100%; border-radius: 24px; box-shadow: 0 30px 60px rgba(0,0,0,.08); }
-.hero-image img {
-  max-width: 420px;
-  margin-left: auto;
+.hero-image {
+  background: transparent;   /* remove any background */
+  padding: 0;                /* remove internal spacing */
+  margin: 0;                 /* optional, aligns image flush */
+  box-shadow: none;          /* remove any container shadow */
+  display: block;
 }
+
 .hero-text {
   max-width: 560px;
 }
@@ -175,15 +185,15 @@ nav a:hover { transform: scale(1.05); }
 }
 
 .profile-photo {
-  width: 100%;            /* scales with container */
-  max-width: 420px;       /* keep your current size */
-  border-radius: 0;       /* no circular crop */
-  box-shadow: none;       /* remove all shadows */
-  transition: none;       /* remove hover transform */
+  width: 100%;
+  max-width: 420px;
+  border-radius: 0; 
+  box-shadow: none;          /* remove all shadows */
   display: block;
-  image-rendering: auto;  /* ensure smooth rendering */
-  filter: brightness(1) contrast(1) saturate(1); /* neutral, no blur or enhancement */
+  filter: none;              /* no brightness/blur/contrast */
+  transition: none;          /* remove hover transform */
 }
+
 
 
 
@@ -788,6 +798,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 </body>
 </html>
+
 
 
 
