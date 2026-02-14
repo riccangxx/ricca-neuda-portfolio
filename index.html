@@ -461,15 +461,16 @@ footer .bottom { width:100%; margin-top:2rem; border-top:1px solid var(--border)
   }
 }
   
-/* HEADER BASE */
+/* HEADER BASE – KEEP ONLY THIS */
 header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 2rem 6vw;
+  padding: 2rem clamp(1.5rem, 6vw, 4rem);
   position: relative;
   z-index: 10;
 }
+
 
 /* NAV CONTAINER */
 .nav-container {
@@ -580,10 +581,11 @@ nav a.cta {
   }
 }
 .site-logo {
-  height: 50px; /* adjust as needed */
+  height: 56px;   /* slightly stronger presence */
   width: auto;
   display: block;
 }
+
 @media (max-width: 768px) {
   .site-logo {
     height: 40px; /* smaller on mobile */
@@ -632,10 +634,6 @@ nav a.cta {
 
 
 
-
-
-  </nav>
-</header>
 
 <!-- HERO -->
 <section class="hero" data-aos="fade-up">
@@ -1025,6 +1023,7 @@ function closeNavOnClickOutside(e) {
 
 </body>
 </html>
+
 
 
 
