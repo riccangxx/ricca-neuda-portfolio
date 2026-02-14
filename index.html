@@ -605,12 +605,11 @@ nav a.cta {
 
 
 /* Carousel container */
-/* Desktop carousel */
 .carousel {
   position: relative;
   overflow: hidden;
-  width: 800px;        /* match your image width */
-  height: 630px;       /* match your image height */
+  width: 800px;        /* desktop fixed width */
+  height: auto;        /* allow text below image */
   margin: 2rem auto;
   border-radius: 16px;
   background: var(--surface);
@@ -624,7 +623,7 @@ nav a.cta {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  height: 100%;
+  width: 100%;
 }
 
 .slide.active {
@@ -634,35 +633,33 @@ nav a.cta {
 /* Slide image */
 .slide-image {
   width: 100%;
-  height: 100%;
-  object-fit: contain;  /* ensures full image fits */
+  height: 630px;       /* fixed desktop height */
+  object-fit: contain;  /* show full image without cropping */
   border-radius: 12px;
-  margin-bottom: 0.5rem; /* small spacing to info */
   background: var(--bg);
+  margin-bottom: 1rem; /* space to text */
 }
 
 /* Slide info */
 .slide-info {
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 0;
+  width: 100%;
   text-align: center;
-  width: 100%;
 }
 
-/* Navigation arrows */
-.carousel-nav {
-  position: absolute;
-  top: 50%;
-  width: 100%;
+/* Navigation & dots container */
+.carousel-footer {
   display: flex;
-  justify-content: space-between;
-  transform: translateY(-50%);
-  padding: 0 1rem;
-  pointer-events: auto;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 0.5rem;
 }
 
+/* Navigation buttons */
 .carousel-nav button {
   padding: 0.5rem 1rem;
-  font-size: 0.9rem;      /* desktop size */
+  font-size: 0.9rem;
   border: none;
   background: var(--accent);
   color: #fff;
@@ -679,7 +676,6 @@ nav a.cta {
 /* Dots indicators */
 .carousel-dots {
   text-align: center;
-  margin-top: 0.8rem;
 }
 
 .carousel-dots .dot {
@@ -701,22 +697,25 @@ nav a.cta {
 /* Mobile adjustments */
 @media (max-width: 768px) {
   .carousel {
-    width: 100%;     /* scale to screen width */
-    height: auto;    /* adjust height automatically */
+    width: 100%;      /* scale to screen */
     padding: 0.5rem;
   }
 
   .slide-image {
-    height: auto;    /* maintain aspect ratio */
-    max-height: 400px; /* optional: prevent huge images */
+    height: auto;     /* maintain aspect ratio */
+    max-height: 400px;
   }
 
-  .carousel-nav button {
-    padding: 0.4rem 0.8rem;  /* smaller buttons for mobile */
-    font-size: 0.8rem;
+  /* hide arrows on mobile */
+  .carousel-nav {
+    display: none;
+  }
+
+  /* dots remain clickable */
+  .carousel-dots {
+    margin-top: 0.5rem;
   }
 }
-
 
 
 </style>
@@ -1193,6 +1192,7 @@ startAutoPlay();
 
 </body>
 </html>
+
 
 
 
