@@ -581,16 +581,19 @@ nav a.cta {
   }
 }
 .site-logo {
-  height: 56px;   /* slightly stronger presence */
+  height: auto;         /* remove hard cap */
+  max-height: 110px;     /* brand-sized, not icon-sized */
   width: auto;
   display: block;
 }
 
+
 @media (max-width: 768px) {
   .site-logo {
-    height: 40px; /* smaller on mobile */
+    max-height: 56px;
   }
 }
+
 
 
 </style>
@@ -1023,6 +1026,7 @@ function closeNavOnClickOutside(e) {
 
 </body>
 </html>
+
 
 
 
