@@ -175,23 +175,14 @@ nav a:hover { transform: scale(1.05); }
 }
 
 .profile-photo {
-  width: 100%;                   /* scales with container */
-  max-width: 420px;              /* adjust size */
-  border-radius: 0;              /* keep rectangle */
-  box-shadow: 0 12px 40px rgba(0,0,0,0.12); /* soft floating shadow */
+  width: 100%;            /* scales with container */
+  max-width: 420px;       /* keep your current size */
+  border-radius: 0;       /* no circular crop */
+  box-shadow: none;       /* remove all shadows */
+  transition: none;       /* remove hover transform */
   display: block;
-  transition: transform 0.3s ease, filter 0.3s ease;
-
-  /* Photo enhancements */
-  image-rendering: auto;         /* smooth rendering */
-  filter: brightness(1.05) contrast(1.1) saturate(1.1) sharpen(1); 
-}
-
-/* Optional hover effect */
-.profile-photo:hover {
-  transform: translateY(-4px) scale(1.02);
-  box-shadow: 0 18px 60px rgba(0,0,0,0.16);
-  filter: brightness(1.08) contrast(1.12) saturate(1.15);
+  image-rendering: auto;  /* ensure smooth rendering */
+  filter: brightness(1) contrast(1) saturate(1); /* neutral, no blur or enhancement */
 }
 
 
@@ -797,6 +788,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 </body>
 </html>
+
 
 
 
