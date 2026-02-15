@@ -693,6 +693,54 @@ nav a.cta {
 .carousel-nav button:hover {
   transform: scale(1.1);
 }
+.carousel-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* buttons stick to edges */
+  margin-top: 1.5rem;
+  width: 100%;
+  max-width: 900px;   /* match carousel width */
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
+
+.carousel-controls .carousel-dots {
+  display: flex;
+  gap: 0.5rem;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.carousel-controls .dot {
+  width: 12px;
+  height: 12px;
+  background: var(--border);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.25s ease, transform 0.2s ease;
+}
+
+.carousel-controls .dot.active {
+  background: var(--accent);
+  transform: scale(1.2);
+}
+
+.carousel-controls button {
+  padding: 0.5rem 1rem;
+  border: none;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 600;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.carousel-controls button:hover {
+  transform: scale(1.05);
+}
 
 /* Mobile adjustments */
 @media (max-width: 768px) {
@@ -908,13 +956,10 @@ nav a.cta {
         </div>
       </div>
 
-      <!-- Navigation -->
-      <div class="carousel-nav">
-        <button class="prev">← Previous</button>
-        <button class="next">Next →</button>
-      </div>
+   <!-- Controls: Previous - Dots - Next -->
+<div class="carousel-controls">
+  <button class="prev">← Previous</button>
 
- <!-- Dots Indicators -->
   <div class="carousel-dots">
     <span class="dot active" data-slide="0"></span>
     <span class="dot" data-slide="1"></span>
@@ -923,6 +968,9 @@ nav a.cta {
     <span class="dot" data-slide="4"></span>
     <span class="dot" data-slide="5"></span>
   </div>
+
+  <button class="next">Next →</button>
+</div>
 </div>
     </div>
   </div>
@@ -1182,6 +1230,7 @@ slides.forEach(slide => {
 
 </body>
 </html>
+
 
 
 
