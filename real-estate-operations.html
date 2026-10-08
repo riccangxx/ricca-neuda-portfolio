@@ -1617,6 +1617,69 @@ nav a.cta {
   }
 }
 
+
+
+/* EXPLORE MENU */
+.explore-toggle {
+  width: 48px;
+  height: 48px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: var(--surface);
+  color: var(--text);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.15rem;
+  line-height: 1;
+  transition: .2s ease;
+  flex: 0 0 auto;
+}
+.explore-toggle:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-1px); }
+.explore-panel {
+  position: fixed;
+  top: 0;
+  right: -390px;
+  width: min(360px, 88vw);
+  height: 100vh;
+  z-index: 10001;
+  background: var(--surface);
+  border-left: 1px solid var(--border);
+  box-shadow: -18px 0 50px rgba(0,0,0,.14);
+  padding: 2rem;
+  transition: right .28s ease;
+  overflow-y: auto;
+}
+.explore-panel.show { right: 0; }
+.explore-panel-header { display:flex; align-items:center; justify-content:space-between; gap:1rem; margin-bottom:2rem; }
+.explore-panel-header h3 { margin:0; font-size:1.45rem; }
+.explore-close {
+  width: 38px; height:38px; border-radius:50%; border:1px solid var(--border);
+  background:transparent; color:var(--text); cursor:pointer; font-size:1.2rem;
+}
+.explore-label { font-family:'Roboto Mono',monospace; color:var(--accent); font-size:.72rem; letter-spacing:.08em; text-transform:uppercase; margin-bottom:.8rem; }
+.explore-links { display:grid; gap:.55rem; }
+.explore-links a {
+  display:flex; align-items:center; justify-content:space-between; gap:1rem;
+  padding:.85rem 1rem; border:1px solid var(--border); border-radius:12px;
+  color:var(--text); text-decoration:none; background:var(--bg); font-size:.92rem;
+  transition:.2s ease;
+}
+.explore-links a:hover { border-color:var(--accent); color:var(--accent); transform:translateX(-2px); }
+.explore-links a::after { content:'→'; color:var(--accent); }
+.explore-divider { height:1px; background:var(--border); margin:1.5rem 0; }
+.explore-overlay {
+  position:fixed; inset:0; background:rgba(0,0,0,.32); z-index:10000;
+  opacity:0; visibility:hidden; transition:.2s ease;
+}
+.explore-overlay.show { opacity:1; visibility:visible; }
+@media (max-width: 1100px) {
+  .explore-toggle { width:44px; height:44px; }
+}
+@media (max-width: 800px) {
+  .explore-toggle { display:none; }
+}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Real Estate Operations Support | Ricca Neuda", "url": "https://ricca-operations.pages.dev/real-estate-operations.html", "description": "Real estate operations support for U.S. agents and teams, including CRM, transactions, listings, offers, deadlines, documentation, and workflow organization.", "about": {"@type": "Person", "name": "Ricca Neuda", "url": "https://ricca-operations.pages.dev/"}}</script>
 </head>
@@ -1635,9 +1698,35 @@ nav a.cta {
 <a href="index.html#process">Process</a>
 <a href="https://calendly.com/ricca-neuda-va/real-estate-support" class="cta" target="_blank" rel="noopener noreferrer">Let's Talk</a>
 </nav>
+<button class="explore-toggle" type="button" aria-label="Open service menu" aria-expanded="false" onclick="toggleExploreMenu()">☰</button>
 <span class="toggle darkmode" onclick="toggleTheme()">☾</span>
 </div>
 </header>
+<div class="explore-overlay" id="exploreOverlay" onclick="closeExploreMenu()"></div>
+<aside class="explore-panel" id="explorePanel" aria-hidden="true">
+  <div class="explore-panel-header">
+    <div>
+      <div class="explore-label">Explore</div>
+      <h3>Services & Pages</h3>
+    </div>
+    <button class="explore-close" type="button" aria-label="Close menu" onclick="closeExploreMenu()">×</button>
+  </div>
+  <div class="explore-links">
+    <a href="index.html">Home</a>
+    <a href="about.html">About Ricca</a>
+    <a href="real-estate-operations.html">Real Estate Operations</a>
+    <a href="real-estate-automation.html">Real Estate Automation</a>
+    <a href="crm-management.html">CRM Management</a>
+    <a href="transaction-coordination.html">Transaction Coordination</a>
+  </div>
+  <div class="explore-divider"></div>
+  <div class="explore-label">Connect</div>
+  <div class="explore-links">
+    <a href="https://calendly.com/ricca-neuda-va/real-estate-support" target="_blank" rel="noopener noreferrer">Book a Call</a>
+    <a href="https://www.linkedin.com/in/ricca-neuda-217904287/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+  </div>
+</aside>
+
 
 <main class="seo-page">
 <section>
@@ -1676,6 +1765,30 @@ function toggleMenu() {
   const n = document.querySelector('header .nav-container');
   n.classList.toggle('show');
 }
+
+function toggleExploreMenu() {
+  const panel = document.getElementById('explorePanel');
+  const overlay = document.getElementById('exploreOverlay');
+  const button = document.querySelector('.explore-toggle');
+  if (!panel) return;
+  const open = !panel.classList.contains('show');
+  panel.classList.toggle('show', open);
+  overlay?.classList.toggle('show', open);
+  panel.setAttribute('aria-hidden', String(!open));
+  button?.setAttribute('aria-expanded', String(open));
+  document.body.style.overflow = open ? 'hidden' : '';
+}
+function closeExploreMenu() {
+  const panel = document.getElementById('explorePanel');
+  const overlay = document.getElementById('exploreOverlay');
+  const button = document.querySelector('.explore-toggle');
+  panel?.classList.remove('show');
+  overlay?.classList.remove('show');
+  panel?.setAttribute('aria-hidden', 'true');
+  button?.setAttribute('aria-expanded', 'false');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeExploreMenu(); });
 </script>
 </body>
 </html>
