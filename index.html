@@ -116,6 +116,64 @@ nav a:hover { transform: scale(1.05); }
 
 .toggle { cursor: pointer; border: 1px solid var(--border); padding: .5rem .9rem; border-radius: 8px; margin-left: 1rem; }
 
+.site-logo-text {
+  text-decoration: none;
+  color: var(--text);
+  font-family: 'Playfair Display', serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+}
+
+.site-logo-text:hover { color: var(--accent); }
+
+.work-intro {
+  max-width: 780px;
+  color: var(--muted);
+  margin-bottom: 2.5rem;
+}
+
+.capability-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.capability-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 2rem;
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+
+.capability-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent);
+  box-shadow: 0 12px 30px rgba(37,99,235,.08);
+}
+
+.capability-card h3 { margin-top: 1rem; }
+.capability-card p { color: var(--muted); }
+
+.confidentiality-note {
+  margin-top: 2rem;
+  padding: 1.25rem 1.5rem;
+  border-left: 4px solid var(--accent);
+  background: var(--soft-accent);
+  border-radius: 0 12px 12px 0;
+}
+
+@media (max-width: 900px) {
+  .capability-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 600px) {
+  .capability-grid { grid-template-columns: 1fr; }
+  .site-logo-text { font-size: 1.05rem; }
+}
+
+
 /* HERO */
 .hero h1 {
   color: #1a1a1a;
@@ -126,58 +184,23 @@ nav a:hover { transform: scale(1.05); }
   letter-spacing: -0.02em;
 }
 
-/* Use flex for natural side-by-side flow */
+/* Hero layout */
 .hero-grid {
   display: flex;
   align-items: center;
-  gap: 4rem;
-  background: transparent;  /* remove any container background */
-  flex-wrap: wrap;          /* allows stacking on small screens */
+  background: transparent;
 }
+
 
 /* text container */
 .hero-text {
   flex: 1;                  /* text takes available space */
-  max-width: 560px;         /* constrain width */
+  max-width: 820px;         /* wider text area now that the photo is removed */
   background: transparent;  /* remove any box */
   padding: 0;
   margin: 0;
 }
 
-/* image container */
-.hero-image {
-  flex-shrink: 0;
-  width: auto;
-  max-width: 420px;
-  display: flex;
-  align-items: flex-end;   /* make photo sit naturally */
-  justify-content: center;
-  background: var(--bg);   /* match page background */
-  padding: 0;
-  margin: 0;
-  box-shadow: none;
-}
-
-
-/* profile photo itself */
-.profile-photo {
-  width: auto;
-  max-width: 100%;
-  display: block;
-  border-radius: 0;
-  box-shadow: none;
-  image-rendering: auto;
-
-  /* soften the bottom edge */
-  -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 85%, rgba(0,0,0,0) 100%);
-  -webkit-mask-repeat: no-repeat;
-  -webkit-mask-size: cover;
-  mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 85%, rgba(0,0,0,0) 100%);
-
-  /* subtle beautify */
-  filter: brightness(1.02) contrast(1.05) saturate(1.03);
-  transition: filter 0.3s ease;
-}
 
 
 
@@ -241,9 +264,6 @@ nav a:hover { transform: scale(1.05); }
     gap: 2rem;
   }
 
-  .hero-image {
-    max-width: 100%;
-  }
 }
 .hero {
   padding-top: 2rem;   /* less top space on mobile */
@@ -1110,10 +1130,6 @@ nav a.cta {
   background: var(--surface);
 }
 
-.hero-image {
-  max-width: 440px;
-}
-
 .positioning-banner {
   background: #111;
   color: #fff;
@@ -1414,21 +1430,14 @@ nav a.cta {
   color: #1D4ED8;
 }
 
-</style>
-<!-- Favicon -->
-<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="192x192" href="android-chrome-192x192.png">
-<link rel="icon" type="image/png" sizes="512x512" href="android-chrome-512x512.png">
 
-  
+</style>
 </head>
 <body>
 
 <header>
-<a href="#home">
-  <img src="logo.png" alt="Ricca Neuda Logo" class="site-logo">
+<a href="#home" class="site-logo-text" aria-label="Ricca Neuda Home">
+  RICCA NEUDA
 </a>
 
 
@@ -1490,9 +1499,6 @@ nav a.cta {
       </div>
     </div>
 
-    <div class="hero-image">
-      <img src="profile.png" alt="Ricca Neuda — Real Estate Operations & Automation Specialist" class="profile-photo">
-    </div>
   </div>
 </section>
 
@@ -1558,111 +1564,68 @@ nav a.cta {
   </div>
 </section>
 
-<!-- PORTFOLIO: Interactive Carousel -->
+<!-- SELECTED WORK & CAPABILITIES -->
 <section id="work" data-aos="fade-up">
   <div class="container">
-    <h2>My Work & Experience</h2>
-    <p>A look at the real estate, marketing, and administrative work I can
-  support behind the scenes.</p>
+    <span class="section-label">Selected Work & Capabilities</span>
+    <h2>What I can manage behind the scenes.</h2>
+    <p class="work-intro">
+      A text-based overview of the systems, operations, and marketing functions I can support.
+      I respect client confidentiality and do not publish private client materials, team photos, or identifying client information.
+    </p>
 
-    <div class="carousel">
-      <!-- Slide 1: Email Marketing -->
-      <div class="slide active">
-        <img src="email-newsletter.png" alt="Email Marketing Sample" class="slide-image">
-        <div class="slide-info">
-          <span class="tool-pill">Email Marketing</span>
-          <h3>Newsletter & Email Marketing</h3>
-          <p>Created and managed newsletters and email campaigns to keep clients,
-  leads, and audiences informed and engaged.</p>
-          <p class="info-text">Tools: Canva, Mailchimp, Flodesk, Follow Up Boss</p>
-        </div>
-      </div>
+    <div class="capability-grid">
+      <article class="capability-card">
+        <span class="tool-pill">Email Marketing</span>
+        <h3>Newsletter & Email Marketing</h3>
+        <p>Created and managed newsletters and email campaigns to keep clients, leads, and audiences informed and engaged.</p>
+        <p class="info-text">Tools: Canva, Mailchimp, Flodesk, Follow Up Boss</p>
+      </article>
 
-      <!-- Slide 2: Social Media -->
-      <div class="slide">
-        <img src="proof-socialmedia.png" alt="Social Media Sample" class="slide-image">
-        <div class="slide-info">
-          <span class="tool-pill">Social Media</span>
-          <h3>Social Media Content & Management</h3>
-          <p>Created branded social media content, managed content calendars, and
-  supported consistent posting across multiple platforms.</p>
-          <p class="info-text">Tools: Canva, CapCut, Meta Business Suite, Instagram, Facebook, YouTube</p>
-        </div>
-      </div>
+      <article class="capability-card">
+        <span class="tool-pill">Social Media</span>
+        <h3>Social Media Content & Management</h3>
+        <p>Created branded social content, managed content calendars, and supported consistent publishing across multiple platforms.</p>
+        <p class="info-text">Tools: Canva, CapCut, Meta Business Suite, Instagram, Facebook, YouTube</p>
+      </article>
 
-      <!-- Slide 3: CRM & Lead Management -->
-      <div class="slide">
-        <img src="proof-crm.png" alt="CRM Sample" class="slide-image">
-        <div class="slide-info">
-          <span class="tool-pill">CRM & Lead Management</span>
-          <h3>CRM & Lead Organization</h3>
-          <p>Organized contact databases, managed lead information, applied tags,
-  maintained records, and supported follow-up workflows.</p>
-          <p class="info-text">Tools: Follow Up Boss, Lofty, KW Command, Google Sheets</p>
-        </div>
-      </div>
+      <article class="capability-card">
+        <span class="tool-pill">CRM & Lead Management</span>
+        <h3>CRM & Lead Organization</h3>
+        <p>Organized contact databases, managed lead information, applied tags, maintained records, and supported follow-up workflows.</p>
+        <p class="info-text">Tools: Follow Up Boss, Lofty, KW Command, Google Sheets</p>
+      </article>
 
-      <!-- Slide 4: Real Estate VA -->
-      <div class="slide">
-        <img src="proof-re.png" alt="Real Estate Sample" class="slide-image">
-        <div class="slide-info">
-          <span class="tool-pill">Real Estate Support</span>
-          <h3>Real Estate Operations & Transaction Support</h3>
-          <p> Supported real estate operations through transaction coordination,
-  listing support, document organization, CRM updates, and client
-  communication.</p>
-          <p class="info-text">Tools: CRMLS, Follow Up Boss, KW Command, Trello, Google Workspace</p>
-        </div>
-      </div>
+      <article class="capability-card">
+        <span class="tool-pill">Real Estate Operations</span>
+        <h3>Transaction & Listing Support</h3>
+        <p>Supported transaction coordination, listing and offer preparation, document organization, deadline tracking, and operational follow-through.</p>
+        <p class="info-text">Tools: CRMLS, Follow Up Boss, KW Command, Trello, Google Workspace</p>
+      </article>
 
-      <!-- Slide 5: Digital Marketing Support -->
-      <div class="slide">
-        <img src="proof-digital.png" alt="Digital Marketing Sample" class="slide-image">
-        <div class="slide-info">
-          <span class="tool-pill">Lead Generation</span>
-          <h3>Lead Research & Prospecting</h3>
-          <p>Researched real estate leads, organized prospect information, and
-  prepared targeted lists for outreach and marketing campaigns.</p>
-          <p class="info-text">Tools: MLS Platforms, Prime Tracers, Google Sheets, CRM Systems</p>
-        </div>
-      </div>
+      <article class="capability-card">
+        <span class="tool-pill">Lead Generation</span>
+        <h3>Lead Research & Prospecting</h3>
+        <p>Researched real estate leads, organized prospect information, and prepared targeted lists for outreach and marketing campaigns.</p>
+        <p class="info-text">Tools: MLS Platforms, Prime Tracers, Google Sheets, CRM Systems</p>
+      </article>
 
-      <!-- Slide 6: Process & Workflow -->
-      <div class="slide">
-        <img src="proof-process.png" alt="Process & Workflow Sample" class="slide-image">
-        <div class="slide-info">
-          <span class="tool-pill">Process & Workflow</span>
-          <h3>Administrative & Workflow Support</h3>
-          <p>Organized tasks, documents, spreadsheets, and workflows to keep
-  day-to-day operations running smoothly and efficiently.</p>
-          <p class="info-text">Tools: Google Workspace, Trello, Google Sheets, Canva</p>
-        </div>
-      </div>
+      <article class="capability-card">
+        <span class="tool-pill">Process & Workflow</span>
+        <h3>Administrative & Workflow Support</h3>
+        <p>Organized tasks, documents, spreadsheets, SOPs, and workflows to keep day-to-day operations running smoothly and efficiently.</p>
+        <p class="info-text">Tools: Google Workspace, Trello, Google Sheets, Canva, Zapier</p>
+      </article>
+    </div>
 
-   <!-- Controls: Previous - Dots - Next -->
-<div class="carousel-controls">
-  <button class="prev">← Previous</button>
-
-  <div class="carousel-dots">
-    <span class="dot active" data-slide="0"></span>
-    <span class="dot" data-slide="1"></span>
-    <span class="dot" data-slide="2"></span>
-    <span class="dot" data-slide="3"></span>
-    <span class="dot" data-slide="4"></span>
-    <span class="dot" data-slide="5"></span>
-  </div>
-
-  <button class="next">Next →</button>
-</div>
-</div>
+    <div class="confidentiality-note">
+      <strong>Client confidentiality matters.</strong> I can discuss the type of work I have handled and provide generalized or recreated examples when appropriate, without exposing private client information or materials.
     </div>
   </div>
 </section>
 
-
-
 <!-- SERVICES -->
-<section id="services" data-aos="fade-up">
+<section id="services" class="alt" data-aos="fade-up">
   <div class="container">
     <div class="about-header">
       <span class="section-label">What I Do</span>
@@ -1711,7 +1674,7 @@ nav a.cta {
 </section>
 
 <!-- PRICING -->
-<section id="pricing" class="alt" data-aos="fade-up">
+<section id="pricing" data-aos="fade-up">
   <div class="container">
     <span class="section-label">Services & Pricing</span>
     <h2>Choose the level of operational support your business needs.</h2>
