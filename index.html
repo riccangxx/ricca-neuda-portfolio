@@ -204,6 +204,35 @@ nav a:hover { transform: scale(1.05); }
 
 
 
+/* HERO IMAGE */
+.hero-image {
+  flex-shrink: 0;
+  width: auto;
+  max-width: 420px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  background: var(--bg);
+  padding: 0;
+  margin: 0;
+  box-shadow: none;
+}
+
+.profile-photo {
+  width: auto;
+  max-width: 100%;
+  display: block;
+  border-radius: 0;
+  box-shadow: none;
+  image-rendering: auto;
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 85%, rgba(0,0,0,0) 100%);
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: cover;
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 85%, rgba(0,0,0,0) 100%);
+  filter: brightness(1.02) contrast(1.05) saturate(1.03);
+  transition: filter 0.3s ease;
+}
+
 /* badge text */
 .badge {
   display: inline-block;
@@ -1499,6 +1528,10 @@ nav a.cta {
       </div>
     </div>
 
+    <div class="hero-image">
+      <img src="profile.png" alt="Ricca Neuda — Real Estate Operations & Automation Specialist" class="profile-photo">
+    </div>
+
   </div>
 </section>
 
@@ -1771,7 +1804,7 @@ nav a.cta {
 </section>
 
 <!-- TOOLS & SKILLS -->
-<section id="tools" data-aos="fade-up">
+<section id="tools" class="alt" data-aos="fade-up">
   <div class="container">
     <span class="section-label">Technology & Systems</span>
     <h2>Tools I can work across.</h2>
@@ -1825,7 +1858,7 @@ nav a.cta {
 </section>
 
 <!-- PROCESS -->
-<section id="process" class="alt" data-aos="fade-up">
+<section id="process" data-aos="fade-up">
   <div class="container">
     <span class="section-label">How I Work</span>
     <h2>A simple process built around your business.</h2>
@@ -1860,7 +1893,7 @@ nav a.cta {
 </section>
 
 <!-- LET'S WORK TOGETHER -->
-<section id="contact" data-aos="fade-up">
+<section id="contact" class="alt" data-aos="fade-up">
   <div class="container">
     <div class="contact-center">
       <span class="section-label">Let's Talk</span>
