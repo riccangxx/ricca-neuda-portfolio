@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://ricca-operations.pages.dev/</loc>
-  </url>
+  <url><loc>https://ricca-operations.pages.dev/</loc></url>
+  <url><loc>https://ricca-operations.pages.dev/real-estate-operations.html</loc></url>
+  <url><loc>https://ricca-operations.pages.dev/real-estate-automation.html</loc></url>
+  <url><loc>https://ricca-operations.pages.dev/crm-management.html</loc></url>
+  <url><loc>https://ricca-operations.pages.dev/transaction-coordination.html</loc></url>
+  <url><loc>https://ricca-operations.pages.dev/about.html</loc></url>
 </urlset>
