@@ -1480,6 +1480,143 @@ nav a.cta {
 .seo-page .backlinks { margin-top:3rem; padding:1.5rem; border-radius:16px; background:var(--soft-accent); border:1px solid var(--border); }
 .seo-page .backlinks a { color:var(--accent-dark); font-weight:600; margin-right:1rem; }
 @media(max-width:700px){ .seo-page .content-grid{grid-template-columns:1fr;} }
+
+/* CLEAN HEADER / NAVIGATION */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 1.25rem clamp(1.25rem, 5vw, 4.5rem);
+  min-height: 88px;
+  position: relative;
+  z-index: 20;
+}
+
+.site-logo-text {
+  white-space: nowrap;
+  flex: 0 0 auto;
+  font-size: 1.08rem;
+  line-height: 1;
+  letter-spacing: .10em;
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  min-width: 0;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: clamp(.8rem, 1.6vw, 1.55rem);
+  min-width: 0;
+}
+
+nav a {
+  margin: 0;
+  white-space: nowrap;
+  font-size: .93rem;
+  line-height: 1.2;
+  color: var(--text);
+}
+
+nav a.cta {
+  height: auto;
+  min-height: 48px;
+  padding: .72rem 1.25rem;
+  border-radius: 999px;
+  white-space: nowrap;
+  font-size: .92rem;
+}
+
+.nav-container .darkmode {
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  margin: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 1.05rem;
+  flex: 0 0 auto;
+  background: transparent;
+}
+
+@media (max-width: 1100px) {
+  header { gap: 1rem; }
+  nav { gap: .85rem; }
+  nav a { font-size: .86rem; }
+  nav a.cta { padding: .68rem 1rem; }
+}
+
+@media (max-width: 900px) {
+  header { min-height: 76px; }
+  .site-logo-text { font-size: 1rem; }
+}
+
+@media (max-width: 768px) {
+  header {
+    padding: 1rem 1.25rem;
+  }
+
+  .site-logo-text {
+    font-size: 1rem;
+  }
+
+  header .toggle.hamburger {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    font-size: 1.35rem;
+  }
+
+  .nav-container {
+    position: fixed;
+    top: 0;
+    right: -290px;
+    width: 280px;
+    height: 100vh;
+    padding: 5.5rem 1.5rem 2rem;
+    flex-direction: column;
+    align-items: stretch;
+    background: var(--bg);
+    box-shadow: -8px 0 30px rgba(0,0,0,.12);
+    transition: right .25s ease;
+    gap: 1.5rem;
+  }
+
+  .nav-container.show { right: 0; }
+
+  nav {
+    flex-direction: column;
+    align-items: stretch;
+    gap: .25rem;
+  }
+
+  nav a {
+    padding: .8rem .25rem;
+    font-size: 1rem;
+  }
+
+  nav a.cta {
+    display: inline-flex;
+    justify-content: center;
+    margin-top: .75rem;
+  }
+
+  .nav-container .darkmode {
+    align-self: flex-start;
+  }
+}
+
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Real Estate Automation Services | Ricca Neuda", "url": "https://ricca-operations.pages.dev/real-estate-automation.html", "description": "Real estate automation support using CRM workflows, Zapier, AI-assisted processes, lead routing, automated follow-up, notifications, and connected systems.", "about": {"@type": "Person", "name": "Ricca Neuda", "url": "https://ricca-operations.pages.dev/"}}</script>
 </head>
@@ -1491,15 +1628,14 @@ nav a.cta {
 <nav>
 <a href="/">Home</a>
 <a href="/#about">About</a>
-<a href="/#work">Portfolio</a>
+<a href="/#work">Work</a>
 <a href="/#services">Services</a>
-<a href="real-estate-operations.html">Operations</a>
-<a href="real-estate-automation.html">Automation</a>
-<a href="crm-management.html">CRM</a>
 <a href="/#pricing">Pricing</a>
+<a href="/#tools">Tools</a>
+<a href="/#process">Process</a>
 <a href="https://calendly.com/ricca-neuda-va/real-estate-support" class="cta" target="_blank" rel="noopener noreferrer">Let's Talk</a>
 </nav>
-<span class="toggle darkmode" onclick="toggleTheme()">🌙</span>
+<span class="toggle darkmode" onclick="toggleTheme()">☾</span>
 </div>
 </header>
 
