@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Ricca Neuda | Real Estate Virtual Assistant | Transaction Coordinator | Marketing & Operations Support</title>
+<title>Ricca Neuda | Real Estate Operations & Automation Specialist</title>
 
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,9 +20,12 @@
   --surface: #ffffff;
   --text: #2d2d2d;
   --muted: #6b6b6b;
-  --accent: #a8937c;
+  --accent: #2563EB;
+  --accent-dark: #1D4ED8;
+  --soft-accent: #EFF6FF;
   --border: #e5e7eb;
   --button: #111111;
+  --navy: #172536;
 }
 
 [data-theme="dark"] {
@@ -33,6 +36,9 @@
   --muted: #b5b5b5;
   --border: #2a2a2a;
   --button: #ffffff;
+
+  --accent: #2563EB;
+  --accent-dark: #1D4ED8;
 }
 
 * { box-sizing: border-box; }
@@ -440,7 +446,7 @@ nav a:hover { transform: scale(1.05); }
   display: block;
   width: 38px;
   height: 2px;
-  background: #a8937c;
+  background: #2563EB;
   margin-bottom: 1.6rem;
 }
 
@@ -484,8 +490,8 @@ nav a:hover { transform: scale(1.05); }
 }
 
 .footer-socials a:hover {
-  background: #a8937c;
-  border-color: #a8937c;
+  background: #2563EB;
+  border-color: #2563EB;
   color: #111111;
   transform: translateY(-3px);
 }
@@ -518,7 +524,7 @@ nav a:hover { transform: scale(1.05); }
 }
 
 .footer-links a:hover {
-  color: #a8937c;
+  color: #2563EB;
   transform: translateX(4px);
 }
 
@@ -559,7 +565,7 @@ nav a:hover { transform: scale(1.05); }
 }
 
 .footer-contact-item a:hover {
-  color: #a8937c;
+  color: #2563EB;
 }
 
 
@@ -583,10 +589,10 @@ nav a:hover { transform: scale(1.05); }
   min-width: 260px;
   padding: 1rem 2rem;
 
-  border: 2px solid #a8937c;
+  border: 2px solid #2563EB;
   border-radius: 6px;
 
-  color: #a8937c;
+  color: #2563EB;
   text-decoration: none;
 
   font-family: 'Inter', sans-serif;
@@ -601,7 +607,7 @@ nav a:hover { transform: scale(1.05); }
 }
 
 .footer-cta-button:hover {
-  background: #a8937c;
+  background: #2563EB;
   color: #111111;
   transform: translateY(-2px);
 }
@@ -1053,6 +1059,361 @@ nav a.cta {
 }
 
 
+
+/* =========================================
+   REAL ESTATE OPERATIONS + AUTOMATION UPDATE
+   ========================================= */
+:root {
+  --accent: #2563EB;
+  --accent-dark: #1D4ED8;
+  --navy: #172536;
+  --soft-accent: #EFF6FF;
+}
+
+.hero {
+  padding-top: 3.5rem;
+  padding-bottom: 5rem;
+}
+
+.hero .eyebrow {
+  display: inline-block;
+  font-family: 'Roboto Mono', monospace;
+  font-size: .78rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+
+.hero h1 {
+  font-size: clamp(2.8rem, 5vw, 4.6rem);
+  max-width: 720px;
+}
+
+.hero-description {
+  max-width: 620px;
+  font-size: 1.15rem;
+}
+
+.hero-subline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .55rem;
+  margin: 1.25rem 0 1.75rem;
+}
+
+.hero-subline span {
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: .38rem .75rem;
+  font-size: .78rem;
+  background: var(--surface);
+}
+
+.hero-image {
+  max-width: 440px;
+}
+
+.positioning-banner {
+  background: #111;
+  color: #fff;
+  padding: 2.5rem 0;
+}
+
+.positioning-banner h2 {
+  color: #fff;
+  margin-bottom: .5rem;
+}
+
+.positioning-banner p {
+  color: #d6d6d6;
+  max-width: 760px;
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.service-card .service-icon {
+  font-size: 2rem;
+  margin-bottom: .75rem;
+}
+
+.service-card {
+  align-items: flex-start;
+  text-align: left;
+}
+
+.service-card h3 {
+  margin-bottom: .5rem;
+}
+
+.service-card p {
+  color: var(--muted);
+}
+
+.pricing-intro {
+  max-width: 760px;
+  margin-bottom: 2.5rem;
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+  align-items: stretch;
+}
+
+.pricing-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 1.6rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.pricing-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 38px rgba(0,0,0,.09);
+}
+
+.pricing-card.featured {
+  border: 2px solid var(--accent);
+  box-shadow: 0 12px 28px rgba(139,115,85,.12);
+}
+
+.pricing-badge {
+  position: absolute;
+  top: -13px;
+  left: 18px;
+  background: var(--accent);
+  color: #fff;
+  padding: .3rem .7rem;
+  border-radius: 999px;
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.pricing-card h3 {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  letter-spacing: .04em;
+  margin-bottom: .7rem;
+}
+
+.price-large {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.45rem;
+  line-height: 1;
+  color: var(--text);
+  font-weight: 700;
+}
+
+.price-large span {
+  font-family: 'Inter', sans-serif;
+  font-size: .82rem;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+.capacity {
+  font-size: .78rem;
+  color: var(--accent);
+  font-weight: 600;
+  margin: .6rem 0 1rem;
+}
+
+.pricing-card ul {
+  margin: 0;
+  padding-left: 1.1rem;
+  color: var(--muted);
+  font-size: .84rem;
+  line-height: 1.65;
+}
+
+.pricing-card li {
+  margin-bottom: .35rem;
+}
+
+.custom-package {
+  margin-top: 1.5rem;
+  padding: 1.25rem 1.5rem;
+  border: 1px dashed var(--accent);
+  border-radius: 16px;
+  background: var(--soft-accent);
+}
+
+.custom-package strong {
+  color: var(--navy);
+}
+
+.audit-box {
+  margin-top: 2rem;
+  padding: 2rem;
+  border-radius: 20px;
+  background: var(--navy);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.audit-box h3 {
+  color: #fff;
+  margin-bottom: .4rem;
+}
+
+.audit-box p {
+  margin: 0;
+  color: #d8dee5;
+  max-width: 700px;
+}
+
+.audit-box .outline {
+  flex-shrink: 0;
+  border-color: #fff;
+  color: #fff;
+}
+
+.audit-box .outline:hover {
+  background: #fff;
+  color: #111;
+}
+
+.credentials {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.credential {
+  padding: 1.2rem;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--surface);
+}
+
+.credential strong {
+  display: block;
+  font-size: 1.1rem;
+  margin-bottom: .25rem;
+}
+
+.credential span {
+  color: var(--muted);
+  font-size: .82rem;
+}
+
+@media (max-width: 1050px) {
+  .pricing-grid { grid-template-columns: repeat(2, 1fr); }
+  .credentials { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 700px) {
+  .pricing-grid,
+  .credentials { grid-template-columns: 1fr; }
+  .audit-box { flex-direction: column; align-items: flex-start; }
+}
+
+
+/* BLUE BRAND SYSTEM */
+.hero .highlight,
+.section-label,
+.info-text,
+.price-large,
+.capacity,
+.number {
+  color: #2563EB;
+}
+
+.badge {
+  background: #2563EB;
+}
+
+.cta {
+  background: #2563EB;
+  border-color: #2563EB;
+}
+
+.cta:hover {
+  background: #1D4ED8;
+}
+
+.outline:hover {
+  background: #2563EB;
+  border-color: #2563EB;
+  color: #fff;
+}
+
+.pricing-card.featured {
+  border-color: #2563EB;
+  box-shadow: 0 12px 28px rgba(37,99,235,.12);
+}
+
+.pricing-badge {
+  background: #2563EB;
+}
+
+.custom-package {
+  border-color: #2563EB;
+  background: #EFF6FF;
+}
+
+.audit-box {
+  background: #172536;
+}
+
+.tool-pill:hover {
+  background: #2563EB;
+}
+
+.carousel-controls button,
+.carousel-nav button {
+  background: #2563EB;
+}
+
+.carousel-dots .dot.active,
+.carousel-controls .dot.active {
+  background: #2563EB;
+}
+
+.positioning-banner {
+  background: #172536;
+}
+
+.footer-accent {
+  background: #2563EB;
+}
+
+.footer-socials a:hover {
+  background: #2563EB;
+  border-color: #2563EB;
+}
+
+.footer-links a:hover,
+.footer-contact-item a:hover {
+  color: #2563EB;
+}
+
+.footer-cta-button {
+  border-color: #2563EB;
+  color: #2563EB;
+}
+
+.footer-cta-button:hover {
+  background: #2563EB;
+  color: #fff;
+}
+
+.pricing-card.featured .capacity {
+  color: #1D4ED8;
+}
+
 </style>
 <!-- Favicon -->
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
@@ -1080,6 +1441,7 @@ nav a.cta {
       <a href="#about">About</a>
       <a href="#work">Portfolio</a>
       <a href="#services">Services</a>
+      <a href="#pricing">Pricing</a>
       <a href="#tools">Tools & Skills</a>
       <a href="#process">Process</a>
       <a href="https://calendly.com/ricca-neuda-va/real-estate-support"
@@ -1102,103 +1464,99 @@ nav a.cta {
 
 <!-- HERO -->
 <section class="hero" data-aos="fade-up">
-<div class="container hero-grid">
-
+  <div class="container hero-grid">
     <div class="hero-text">
-      <span class="badge">✨Your Creative Right Hand</span>
+      <span class="eyebrow">REAL ESTATE OPERATIONS + AUTOMATION</span>
       <h1>
-  Helping real estate professionals<br>
-  <span class="highlight">stay organized</span><br>
-  and grow their business.
-</h1>
-     <p class="hero-description">
-  Real Estate Virtual Assistant | Transaction Coordinator | Marketing & Operations Support
-</p>
+        I build the systems behind
+        <span class="highlight">busy real estate businesses.</span>
+      </h1>
+      <p class="hero-description">
+        I help agents and teams organize, automate, and manage the systems behind their business —
+        from CRM and lead management to transactions, marketing, AI, and digital workflows.
+      </p>
+
+      <div class="hero-subline">
+        <span>CRM & Lead Operations</span>
+        <span>AI & Automation</span>
+        <span>Transactions</span>
+        <span>Marketing Systems</span>
+      </div>
+
       <div class="buttons">
-        <a href="#"
-   class="cta"
-   onclick="event.preventDefault(); openModal();">
-  Let's Work Together
-</a>
-        <a href="#work" class="outline">View My Work</a>
+        <a href="#pricing" class="cta">View Services & Pricing</a>
+        <a href="https://calendly.com/ricca-neuda-va/real-estate-support"
+           class="outline" target="_blank" rel="noopener noreferrer">Book a Call</a>
       </div>
     </div>
 
     <div class="hero-image">
-     <img src="profile.png" alt="Ricca Neuda" class="profile-photo">
+      <img src="profile.png" alt="Ricca Neuda — Real Estate Operations & Automation Specialist" class="profile-photo">
     </div>
-
   </div>
-
 </section>
 
+<!-- POSITIONING -->
+<section class="positioning-banner" data-aos="fade-up">
+  <div class="container">
+    <h2>Your business doesn't need another task-doer.</h2>
+    <p>
+      It needs systems that work. I combine real estate operations, technology, marketing,
+      automation, and process improvement to keep the moving parts of your business organized and connected.
+    </p>
+  </div>
+</section>
 
 <!-- ABOUT -->
 <section id="about" class="alt" data-aos="fade-up">
   <div class="container">
-    
-   <div class="about-header">
-  <span class="section-label">About Me</span>
+    <div class="about-header">
+      <span class="section-label">About Me</span>
+      <h2>Real estate operations, technology, and execution — in one partner.</h2>
+    </div>
 
-  <h2 class="section-title">
-    Hi, I'm Ricca — your real estate support partner
-  </h2>
-</div>
-
-<div class="about-content">
+    <div class="about-content">
       <div>
         <p>
-          I’m a Real Estate Virtual Assistant with experience supporting the
-          day-to-day operations, marketing, and administrative needs of real
-          estate professionals. I enjoy bringing structure to busy workflows
-          and making sure the details don’t get overlooked.
+          I’m Ricca — a Real Estate Operations & Automation Specialist with 5+ years of combined
+          professional experience and 2+ years focused on real estate.
         </p>
-
         <p>
-          From managing CRMs and lead lists to supporting transactions,
-          creating marketing content, and organizing projects, I help keep
-          things moving behind the scenes so you can focus on your clients
-          and business.
+          I’ve supported agents and teams across CRM management, transaction coordination,
+          listing and offer support, marketing, lead research, website operations, and day-to-day
+          business systems.
         </p>
-
         <p>
-          I’m detail-oriented, proactive, and always willing to learn new
-          systems. My goal is simple: to become a reliable part of your team
-          and make your workload a little easier.
+          My approach goes beyond completing individual tasks. I look at how your systems connect,
+          identify repetitive or inefficient processes, and help organize, delegate, automate, or
+          improve them so your business can run more smoothly.
         </p>
       </div>
-
 
       <div class="strengths">
         <div class="strength-card">
-          <strong>💖 Reliable & Invested</strong>
-    <p>
-      I take ownership of the work I’m trusted with. You can count on me
-      to follow through and keep things moving.
-    </p>
-  </div>
-
-  <div class="strength-card">
-    <strong>🔍 Detail-Oriented</strong>
-    <p>
-      I pay attention to the details that keep things on track. I make sure
-      tasks, information, and deadlines are handled carefully.
-    </p>
-  </div>
-
-  <div class="strength-card">
-    <strong>⚡ Proactive & Adaptable</strong>
-    <p>
-      I look ahead, solve problems, and learn as I go. I’m comfortable
-      adapting to new tools, systems, and workflows.
-    </p>
+          <strong>⚙️ Systems-Minded</strong>
+          <p>I look at the workflow behind the task and identify opportunities to make it simpler, clearer, and more repeatable.</p>
+        </div>
+        <div class="strength-card">
+          <strong>🤖 Automation-Focused</strong>
+          <p>I use CRM automation, Zapier, AI-assisted workflows, and connected systems to reduce repetitive manual work.</p>
+        </div>
+        <div class="strength-card">
+          <strong>🏡 Real Estate Experienced</strong>
+          <p>I understand the operational pace of real estate — CRM, listings, transactions, deadlines, marketing, and follow-up.</p>
         </div>
       </div>
     </div>
+
+    <div class="credentials">
+      <div class="credential"><strong>5+ Years</strong><span>Combined professional experience</span></div>
+      <div class="credential"><strong>2+ Years</strong><span>Real estate experience</span></div>
+      <div class="credential"><strong>Operations + Marketing</strong><span>Front-end and back-end support</span></div>
+      <div class="credential"><strong>Remote</strong><span>Support for U.S. real estate professionals</span></div>
+    </div>
   </div>
 </section>
-
-
 
 <!-- PORTFOLIO: Interactive Carousel -->
 <section id="work" data-aos="fade-up">
@@ -1304,48 +1662,147 @@ nav a.cta {
 
 
 <!-- SERVICES -->
-<section id="services" class="alt" data-aos="fade-up">
+<section id="services" data-aos="fade-up">
   <div class="container">
-    <h2>Services</h2>
+    <div class="about-header">
+      <span class="section-label">What I Do</span>
+      <h2>Systems and operations that keep your business moving.</h2>
+      <p>Support can be combined around your priorities, systems, capacity, and growth stage.</p>
+    </div>
 
     <div class="grid">
-
       <div class="service-card">
-        <span class="emoji">🏡</span>
-        <h3>Real Estate Support</h3>
-        <p>
-          Support with transaction coordination, listing tasks, CRM updates,
-          document organization, and day-to-day real estate operations.
-        </p>
+        <span class="service-icon">⚙️</span>
+        <h3>CRM & Lead Operations</h3>
+        <p>CRM management, database organization, tagging, segmentation, pipeline management, follow-up systems, lead routing, and reporting.</p>
       </div>
 
       <div class="service-card">
-        <span class="emoji">📋</span>
-        <h3>CRM & Lead Management</h3>
-        <p>
-          Organize leads, maintain databases, update records, manage tags,
-          and keep follow-up workflows organized and on track.
-        </p>
+        <span class="service-icon">🤖</span>
+        <h3>AI & Automation</h3>
+        <p>Zapier workflows, CRM automation, automated tasks, notifications, lead capture, AI-assisted processes, and cross-platform integrations.</p>
       </div>
 
       <div class="service-card">
-        <span class="emoji">🎨</span>
-        <h3>Marketing & Content</h3>
-        <p>
-          Create social media content, newsletters, graphics, videos, and
-          marketing materials that keep your brand consistent and visible.
-        </p>
+        <span class="service-icon">🏡</span>
+        <h3>Real Estate Operations</h3>
+        <p>Transaction coordination, listing support, offer preparation, document organization, deadlines, and operational follow-through.</p>
       </div>
 
       <div class="service-card">
-        <span class="emoji">🗂️</span>
-        <h3>Administrative & Operations</h3>
-        <p>
-          Help manage tasks, spreadsheets, documents, schedules, and
-          workflows so your day-to-day operations stay organized.
-        </p>
+        <span class="service-icon">✉️</span>
+        <h3>Marketing Systems</h3>
+        <p>Email campaigns, newsletters, social scheduling, Canva content, ManyChat workflows, and marketing campaign support.</p>
       </div>
 
+      <div class="service-card">
+        <span class="service-icon">🌐</span>
+        <h3>Website & Digital Operations</h3>
+        <p>Website updates, forms, landing pages, digital troubleshooting, integrations, and GitHub-based projects.</p>
+      </div>
+
+      <div class="service-card">
+        <span class="service-icon">📋</span>
+        <h3>Process & SOP Optimization</h3>
+        <p>Workflow mapping, SOP creation, documentation, process improvement, task organization, and operational system cleanup.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing" class="alt" data-aos="fade-up">
+  <div class="container">
+    <span class="section-label">Services & Pricing</span>
+    <h2>Choose the level of operational support your business needs.</h2>
+    <p class="pricing-intro">
+      Monthly retainers are designed around dedicated operational capacity — not random tasks.
+      As your systems become more efficient, the goal is to create more leverage, not more busywork.
+    </p>
+
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <h3>ESSENTIAL OPERATIONS</h3>
+        <div class="price-large">$750 <span>/ month</span></div>
+        <div class="capacity">Up to 10 hours/week</div>
+        <ul>
+          <li>CRM management & database cleanup</li>
+          <li>Contact tagging & segmentation</li>
+          <li>Pipeline & follow-up updates</li>
+          <li>Research & data organization</li>
+          <li>Listing / offer support</li>
+          <li>Transaction coordination support</li>
+          <li>Document & deadline tracking</li>
+          <li>Canva, social & basic email support</li>
+        </ul>
+      </div>
+
+      <div class="pricing-card featured">
+        <span class="pricing-badge">Most Popular</span>
+        <h3>GROWTH OPERATIONS</h3>
+        <div class="price-large">$1,300 <span>/ month</span></div>
+        <div class="capacity">Up to 20 hours/week</div>
+        <ul>
+          <li>Everything in Essential</li>
+          <li>CRM / lead / pipeline management</li>
+          <li>CRM reporting & database maintenance</li>
+          <li>Zapier & CRM automation</li>
+          <li>Lead routing & automated task creation</li>
+          <li>Notifications & form-to-CRM workflows</li>
+          <li>Email campaigns & lead nurturing</li>
+          <li>ManyChat & social scheduling</li>
+          <li>SOP documentation</li>
+        </ul>
+      </div>
+
+      <div class="pricing-card">
+        <h3>OPERATIONS + AUTOMATION</h3>
+        <div class="price-large">$1,800 <span>/ month</span></div>
+        <div class="capacity">Up to 30 hours/week</div>
+        <ul>
+          <li>Everything in Growth</li>
+          <li>Advanced Zapier workflows</li>
+          <li>AI-assisted business processes</li>
+          <li>Lead capture & automated follow-up</li>
+          <li>Cross-platform integrations</li>
+          <li>ManyChat & email automation</li>
+          <li>Website, forms & landing pages</li>
+          <li>Website-to-CRM integrations</li>
+          <li>GitHub-based projects</li>
+          <li>Workflow optimization</li>
+        </ul>
+      </div>
+
+      <div class="pricing-card">
+        <h3>FULL OPERATIONS BACKBONE</h3>
+        <div class="price-large">$2,300 <span>/ month</span></div>
+        <div class="capacity">Up to 40 hours/week</div>
+        <ul>
+          <li>Comprehensive CRM & lead management</li>
+          <li>Transactions, listings & team operations</li>
+          <li>AI + automation systems</li>
+          <li>Email, social & marketing automation</li>
+          <li>Website & digital systems</li>
+          <li>Reporting & operational oversight</li>
+          <li>SOPs & process improvement</li>
+          <li>Ongoing system optimization</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="custom-package">
+      <strong>CUSTOM OPERATIONS PACKAGE — starting at $750/month</strong><br>
+      Combine CRM, automation, transaction coordination, marketing, website, AI, and other operational
+      support based on your business needs and workflow complexity.
+    </div>
+
+    <div class="audit-box">
+      <div>
+        <h3>Not sure what you actually need?</h3>
+        <p>Book a conversation and we can identify where your business is losing time, what can be organized or automated, and what level of support makes sense.</p>
+      </div>
+      <a href="https://calendly.com/ricca-neuda-va/real-estate-support"
+         class="outline" target="_blank" rel="noopener noreferrer">Book a Systems Call</a>
     </div>
   </div>
 </section>
@@ -1353,30 +1810,36 @@ nav a.cta {
 <!-- TOOLS & SKILLS -->
 <section id="tools" data-aos="fade-up">
   <div class="container">
-    <h2>Tools & Skills</h2>
-
+    <span class="section-label">Technology & Systems</span>
+    <h2>Tools I can work across.</h2>
     <p>
-      I work with the tools and platforms that keep real estate businesses
-      organized, productive, and connected. I'm also comfortable learning
-      new systems and adapting to your workflow.
+      I’m comfortable working across real estate CRMs, marketing platforms, automation tools,
+      productivity systems, websites, and digital workflows — and I can adapt to new systems quickly.
     </p>
 
     <div class="tools-grid">
-
       <div class="tools-category">
-        <strong>Real Estate & CRM</strong>
-        <hr>
+        <strong>Real Estate & CRM</strong><hr>
         <span class="tool-pill">Follow Up Boss</span>
-        <span class="tool-pill">KW Command</span>
         <span class="tool-pill">Lofty</span>
+        <span class="tool-pill">KW Command</span>
+        <span class="tool-pill">SkySlope</span>
         <span class="tool-pill">CRMLS</span>
         <span class="tool-pill">UtahRealEstate.com</span>
         <span class="tool-pill">Prime Tracers</span>
       </div>
 
       <div class="tools-category">
-        <strong>Marketing & Design</strong>
-        <hr>
+        <strong>Automation & AI</strong><hr>
+        <span class="tool-pill">Zapier</span>
+        <span class="tool-pill">ManyChat</span>
+        <span class="tool-pill">AI Tools</span>
+        <span class="tool-pill">CRM Automation</span>
+        <span class="tool-pill">Workflow Design</span>
+      </div>
+
+      <div class="tools-category">
+        <strong>Marketing & Content</strong><hr>
         <span class="tool-pill">Canva</span>
         <span class="tool-pill">CapCut</span>
         <span class="tool-pill">Mailchimp</span>
@@ -1386,23 +1849,14 @@ nav a.cta {
       </div>
 
       <div class="tools-category">
-        <strong>Project Management</strong>
-        <hr>
+        <strong>Operations & Digital</strong><hr>
         <span class="tool-pill">Trello</span>
         <span class="tool-pill">Google Workspace</span>
         <span class="tool-pill">Google Sheets</span>
-        <span class="tool-pill">Google Docs</span>
-      </div>
-
-      <div class="tools-category">
-        <strong>Communication & Scheduling</strong>
-        <hr>
-        <span class="tool-pill">Gmail</span>
-        <span class="tool-pill">Zoom</span>
-        <span class="tool-pill">Microsoft Teams</span>
         <span class="tool-pill">Calendly</span>
+        <span class="tool-pill">GitHub</span>
+        <span class="tool-pill">Website Management</span>
       </div>
-
     </div>
   </div>
 </section>
@@ -1410,50 +1864,34 @@ nav a.cta {
 <!-- PROCESS -->
 <section id="process" class="alt" data-aos="fade-up">
   <div class="container">
-    <h2>How We'll Work Together</h2>
-
-    <p>
-      A simple and collaborative process designed to make your workload easier.
-    </p>
+    <span class="section-label">How I Work</span>
+    <h2>A simple process built around your business.</h2>
+    <p>Clear priorities, organized systems, independent execution, and ongoing improvement.</p>
 
     <div class="grid">
-
       <div class="process-step">
         <span class="number">01</span>
-        <h3>Let's Connect</h3>
-        <p>
-          Tell me about your business, your current priorities, and the areas
-          where you need support.
-        </p>
+        <h3>Discover</h3>
+        <p>We discuss your business, current systems, priorities, pain points, and where operational support would have the biggest impact.</p>
       </div>
 
       <div class="process-step">
         <span class="number">02</span>
-        <h3>Plan & Organize</h3>
-        <p>
-          We'll identify your priorities, tools, workflows, and the best way
-          for me to support your business.
-        </p>
+        <h3>Organize</h3>
+        <p>I learn your tools and workflows, establish priorities, organize the work, and identify opportunities for improvement.</p>
       </div>
 
       <div class="process-step">
         <span class="number">03</span>
-        <h3>Get to Work</h3>
-        <p>
-          I take care of the assigned tasks, keep everything organized, and
-          communicate progress along the way.
-        </p>
+        <h3>Execute</h3>
+        <p>I handle the agreed operational work independently, keep systems updated, and communicate when something needs your input.</p>
       </div>
 
       <div class="process-step">
         <span class="number">04</span>
-        <h3>Grow Together</h3>
-        <p>
-          As I learn your business, I look for ways to improve workflows,
-          stay ahead of tasks, and provide ongoing support.
-        </p>
+        <h3>Optimize</h3>
+        <p>As I understand the business, I look for repetitive work that can be documented, streamlined, delegated, or automated.</p>
       </div>
-
     </div>
   </div>
 </section>
@@ -1462,21 +1900,18 @@ nav a.cta {
 <section id="contact" data-aos="fade-up">
   <div class="container">
     <div class="contact-center">
-
-      <h2>Let's Work Together</h2>
-
+      <span class="section-label">Let's Talk</span>
+      <h2>Build a business that runs more smoothly.</h2>
       <p>
-        Need an extra set of hands? Let's talk about how I can support your
-        real estate business and take some of the workload off your plate.
+        If your CRM is messy, follow-up is inconsistent, transactions are taking too much time,
+        or you're doing too much manually, let's talk about what can be improved.
       </p>
+      <p><strong>I’m currently accepting new real estate clients.</strong></p>
 
-      <p>I typically respond within 24 hours.</p>
-
-      <a href="#"
-   onclick="event.preventDefault(); openModal();"
-   class="cta">
-  Let's Connect
-</a>
+      <a href="https://calendly.com/ricca-neuda-va/real-estate-support"
+         target="_blank" rel="noopener noreferrer" class="cta">
+        Book a Systems Call
+      </a>
     </div>
   </div>
 </section>
@@ -1493,9 +1928,9 @@ nav a.cta {
       <span class="footer-accent"></span>
 
       <p>
-        Your reliable real estate support partner,<br>
-        helping professionals stay organized<br>
-        and grow their business.
+        Real Estate Operations & Automation Specialist,<br>
+        building the systems behind<br>
+        busy real estate businesses.
       </p>
 
       <div class="footer-socials">
@@ -1552,6 +1987,7 @@ nav a.cta {
         <a href="#about">About</a>
         <a href="#work">Portfolio</a>
         <a href="#services">Services</a>
+        <a href="#pricing">Pricing</a>
         <a href="#tools">Tools & Skills</a>
         <a href="#process">Process</a>
         <a href="#contact">Contact</a>
@@ -1618,7 +2054,7 @@ nav a.cta {
       <span class="footer-accent"></span>
 
       <p>
-       Ready to simplify your workload? Let’s talk.
+       Ready to simplify your operations? Let’s talk.
       </p>
 
       <a href="https://calendly.com/ricca-neuda-va/real-estate-support"
@@ -1791,7 +2227,6 @@ slides.forEach(slide => {
 
 </body>
 </html>
-
 
 
 
