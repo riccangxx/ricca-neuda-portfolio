@@ -1684,6 +1684,34 @@ nav a.cta {
 }
 @media (max-width: 800px) {
   .explore-toggle { display:none; }
+
+  /* On mobile, use the single hamburger in the header to open the full menu. */
+  header .nav-container {
+    display: none;
+  }
+
+  header .hamburger {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    background: var(--surface);
+    color: var(--text);
+    cursor: pointer;
+    font-size: 1.15rem;
+    line-height: 1;
+    z-index: 10002;
+  }
+
+  .explore-panel {
+    width: min(360px, 88vw);
+    padding: 1.5rem;
+  }
 }
 </style>
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
@@ -1697,7 +1725,7 @@ nav a.cta {
 
 
   <!-- Mobile hamburger -->
-  <span class="toggle hamburger" onclick="toggleMenu()">☰</span>
+  <button class="toggle hamburger" type="button" aria-label="Open navigation menu" aria-expanded="false" onclick="toggleExploreMenu()">☰</button>
 
   <!-- Nav container -->
   <div class="nav-container">
@@ -1725,8 +1753,19 @@ nav a.cta {
     </div>
     <button class="explore-close" type="button" aria-label="Close menu" onclick="closeExploreMenu()">×</button>
   </div>
+  <div class="explore-label">Website</div>
   <div class="explore-links">
     <a href="index.html">Home</a>
+    <a href="index.html#about">About</a>
+    <a href="index.html#work">Work</a>
+    <a href="index.html#services">Services</a>
+    <a href="index.html#pricing">Pricing</a>
+    <a href="index.html#tools">Tools</a>
+    <a href="index.html#process">Process</a>
+  </div>
+  <div class="explore-divider"></div>
+  <div class="explore-label">Services & Pages</div>
+  <div class="explore-links">
     <a href="about.html">About Ricca</a>
     <a href="real-estate-operations.html">Real Estate Operations</a>
     <a href="real-estate-automation.html">Real Estate Automation</a>
