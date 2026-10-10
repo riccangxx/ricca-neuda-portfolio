@@ -1713,6 +1713,32 @@ nav a.cta {
     padding: 1.5rem;
   }
 }
+
+/* CLIENT DISCOVERY PROMINENCE */
+.discovery-banner {
+  background: #eef4fb;
+  border-top: 1px solid #dce7f5;
+  border-bottom: 1px solid #dce7f5;
+  padding: 1.1rem 0;
+}
+.discovery-banner-inner {
+  display: flex; align-items: center; justify-content: space-between; gap: 1.5rem;
+}
+.discovery-banner-copy { flex: 1; }
+.discovery-banner-copy strong { display: block; color: #172536; font-size: 1.03rem; line-height: 1.4; }
+.discovery-banner-copy span { display: block; color: #526174; font-size: .92rem; margin-top: .2rem; }
+.discovery-banner .cta { background: #2563EB; color: #fff; flex-shrink: 0; }
+.discovery-banner .cta:hover { background: #1D4ED8; }
+.hero .buttons { display: flex; align-items: center; gap: .85rem; flex-wrap: wrap; }
+.hero .discovery-cta { background: #2563EB; color: #fff; }
+.hero .discovery-cta:hover { background: #1D4ED8; }
+@media (max-width: 650px) {
+  .discovery-banner-inner { align-items: stretch; flex-direction: column; gap: .85rem; }
+  .discovery-banner .cta { width: 100%; }
+  .hero .buttons { align-items: stretch; flex-direction: column; }
+  .hero .buttons a { width: 100%; }
+}
+
 </style>
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
 </head>
@@ -1737,6 +1763,7 @@ nav a.cta {
 <a href="index.html#pricing">Pricing</a>
 <a href="index.html#tools">Tools</a>
 <a href="index.html#process">Process</a>
+<a href="client-discovery.html">Work With Me</a>
 <a href="https://calendly.com/ricca-neuda-va/real-estate-support" class="cta" target="_blank" rel="noopener noreferrer">Let's Talk</a>
 </nav>
 
@@ -1762,6 +1789,7 @@ nav a.cta {
     <a href="index.html#pricing">Pricing</a>
     <a href="index.html#tools">Tools</a>
     <a href="index.html#process">Process</a>
+    <a href="client-discovery.html">Client Discovery Form</a>
   </div>
   <div class="explore-divider"></div>
   <div class="explore-label">Services & Pages</div>
@@ -1787,6 +1815,17 @@ nav a.cta {
 
 
 
+<!-- CLIENT DISCOVERY QUICK ENTRY -->
+<section class="discovery-banner" aria-label="Client discovery invitation">
+  <div class="container discovery-banner-inner">
+    <div class="discovery-banner-copy">
+      <strong>Not sure which support package fits your business?</strong>
+      <span>Tell me what’s slowing you down, what you want to achieve, and how you prefer to work. I’ll help you explore a practical fit.</span>
+    </div>
+    <a class="cta" href="client-discovery.html">Tell Me What You Need →</a>
+  </div>
+</section>
+
 <!-- HERO -->
 <section class="hero">
   <div class="container hero-grid">
@@ -1809,7 +1848,8 @@ nav a.cta {
       </div>
 
       <div class="buttons">
-        <a href="#pricing" class="cta">View Services & Pricing</a>
+        <a href="client-discovery.html" class="cta discovery-cta">Tell Me What You Need</a>
+        <a href="#pricing" class="outline">View Services & Pricing</a>
         <a href="https://calendly.com/ricca-neuda-va/real-estate-support"
            class="outline" target="_blank" rel="noopener noreferrer">Book a Call</a>
       </div>
@@ -2086,6 +2126,7 @@ nav a.cta {
         <h3>Not sure what you actually need?</h3>
         <p>Book a conversation and we can identify where your business is losing time, what can be organized or automated, and what level of support makes sense.</p>
       </div>
+      <a href="client-discovery.html" class="outline">Start Client Discovery</a>
       <a href="https://calendly.com/ricca-neuda-va/real-estate-support"
          class="outline" target="_blank" rel="noopener noreferrer">Book a Systems Call</a>
     </div>
