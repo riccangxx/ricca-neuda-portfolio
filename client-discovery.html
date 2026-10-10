@@ -92,7 +92,7 @@ form.addEventListener('submit',function(e){
  for(const [key,label] of Object.entries(labels)){const vals=fd.getAll(key); const value=vals.filter(v=>String(v).trim()).join(', '); if(value) lines.push(label+': '+value);}
  const messageField=document.createElement('input'); messageField.type='hidden'; messageField.name='message'; messageField.value=lines.join('\n\n'); form.appendChild(messageField);
  status.className='status';status.textContent='Sending your answers…';button.disabled=true;button.textContent='Sending…';
- emailjs.sendForm('service_l4ixmrw','template_qgiqzju',form).then(()=>{status.className='status success';status.textContent='Thank you — your discovery form has been submitted. I’ll review your answers and follow up by email.';form.reset();messageField.remove();button.disabled=false;button.textContent='Submit Discovery Form';}).catch((err)=>{console.error(err);status.className='status error';status.textContent='We could not submit the form right now. Please try again or email riccaneuda38@gmail.com.';messageField.remove();button.disabled=false;button.textContent='Submit Discovery Form';});
+ emailjs.sendForm('service_l4ixmrw','template_y6yin29',form).then(()=>{status.className='status success';status.textContent='Thank you — your discovery form has been submitted. I’ll review your answers and follow up by email.';form.reset();messageField.remove();button.disabled=false;button.textContent='Submit Discovery Form';}).catch((err)=>{console.error(err);status.className='status error';status.textContent='We could not submit the form right now. Please try again or email riccaneuda38@gmail.com.';messageField.remove();button.disabled=false;button.textContent='Submit Discovery Form';});
 });
 </script>
 </body></html>
