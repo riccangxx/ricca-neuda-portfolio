@@ -83,76 +83,71 @@
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 <script>
 (function(){ emailjs.init("_a6T9vTgeLEpDgJR0"); })();
-const form = document.getElementById('discovery-form');
-form.addEventListener('submit', function(e) {
-  e.preventDefault();
-  const status = document.getElementById('form-status');
-  const button = document.getElementById('submit-button');
-  const fd = new FormData(form);
-  const answer = (name) => {
-    const values = fd.getAll(name).map(v => String(v).trim()).filter(Boolean);
-    return values.length ? values.join(', ') : 'Not answered';
-  };
-  const qa = (question, name) => question + '\n' + answer(name);
-  const params = {
-    name: answer('name'),
-    email: answer('email'),
-    company_name: answer('company'),
-    website: qa('Website or main social profile:', 'website'),
-    role: qa('Your role:', 'role'),
-    team_size: qa('Team size:', 'team_size'),
-    market: qa('Where is your business based / which market do you serve?', 'market'),
-    current_tools: qa('What tools or platforms do you currently use?', 'tools'),
-    support_needed: [
-      qa('Which areas would you like support with? (Select all that apply)', 'services'),
-      qa('What specific tasks, projects, or responsibilities would you like support with?', 'task_details')
-    ].join('\n\n'),
-    pain_points: qa('What is taking too much time, getting delayed, falling through the cracks, or being repeated manually?', 'bottlenecks'),
-    previous_attempts: qa('What have you already tried, and what is still not working?', 'tried'),
-    goals: [
-      qa('What would you like to achieve over the next 90 days?', 'goals'),
-      qa('What is your top priority?', 'priority'),
-      qa('When would you like to start?', 'urgency'),
-      qa('What would make this engagement successful for you?', 'success'),
-      qa('If we could fix one thing first, what would make the biggest difference?', 'first_fix')
-    ].join('\n\n'),
-    communication: qa('Preferred communication:', 'communication'),
-    updates: qa('Preferred update frequency:', 'updates'),
-    expectations: qa('What are your expectations around response times, deadlines, availability, approvals, and urgent requests?', 'expectations'),
-    access_approval: qa('Who would provide instructions, approve work, and arrange system access?', 'access'),
-    budget: [
-      qa('What budget range have you planned?', 'budget'),
-      qa('How flexible is the budget?', 'flexibility')
-    ].join('\n\n'),
-    hours: [
-      qa('Estimated workload:', 'hours'),
-      qa('Preferred engagement:', 'engagement'),
-      qa('Preferred working style:', 'direction'),
-      qa('Meeting preference:', 'meetings'),
-      qa('Required time-zone overlap / working hours:', 'overlap')
-    ].join('\n\n'),
-    start_date: qa('Ideal start date:', 'start_date'),
-    additional_notes: qa('Anything else I should know?', 'anything_else')
-  };
-  status.className = 'status';
-  status.textContent = 'Sending your answers…';
-  button.disabled = true;
-  button.textContent = 'Sending…';
-  emailjs.send('service_l4ixmrw', 'template_c636h41', params)
-    .then(() => {
-      status.className = 'status success';
-      status.textContent = 'Thank you — your discovery form has been submitted. I’ll review your answers and follow up by email.';
-      form.reset();
-      button.disabled = false;
-      button.textContent = 'Submit Discovery Form';
-    })
-    .catch((err) => {
-      console.error('EmailJS submission error:', err);
-      status.className = 'status error';
-      status.textContent = 'We could not submit the form right now. Please try again or email riccaneuda38@gmail.com.';
-      button.disabled = false;
-      button.textContent = 'Submit Discovery Form';
-    });
+const form=document.getElementById('discovery-form');
+form.addEventListener('submit',function(e){
+ e.preventDefault();
+ const status=document.getElementById('form-status');
+ const button=document.getElementById('submit-button');
+ const fd=new FormData(form);
+ const answer=(name)=>{
+   const values=fd.getAll(name).map(v=>String(v).trim()).filter(Boolean);
+   return values.length ? values.join(', ') : 'Not answered';
+ };
+ const qa=(question,name)=>`<strong>${question}</strong><br>${escapeHtml(answer(name))}`;
+ const escapeHtml=(value)=>value.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+ const section=(items)=>items.map(([question,name])=>qa(question,name)).join('<br><br>');
+ const setHidden=(name,value)=>{
+   let field=form.querySelector(`input[type="hidden"][name="${name}"]`);
+   if(!field){field=document.createElement('input');field.type='hidden';field.name=name;field.dataset.emailjsGenerated='true';form.appendChild(field);}
+   field.value=value;
+ };
+ // Map the form's actual field names to the exact variables used by the existing EmailJS template.
+ setHidden('company_name', answer('company'));
+ setHidden('current_tools', section([
+   ['What tools or platforms do you currently use?','tools']
+ ]));
+ setHidden('support_needed', section([
+   ['What areas would you like support with? (Select all that apply)','services'],
+   ['What specific tasks, projects, or responsibilities would you like support with?','task_details']
+ ]));
+ setHidden('pain_points', section([
+   ['What is taking too much time, getting delayed, falling through the cracks, or being repeated manually?','bottlenecks'],
+   ['If we could fix one thing first, what would make the biggest difference?','first_fix']
+ ]));
+ setHidden('previous_attempts', section([
+   ['What have you already tried, and what is still not working?','tried']
+ ]));
+ setHidden('goals', section([
+   ['What would you like to achieve over the next 90 days?','goals'],
+   ['What is your top priority?','priority'],
+   ['When would you like to start?','urgency'],
+   ['What would make this engagement successful for you?','success']
+ ]));
+ setHidden('communication', qa('Preferred communication','communication'));
+ setHidden('updates', qa('Preferred update frequency','updates'));
+ setHidden('expectations', qa('What are your expectations around response times, deadlines, availability, approvals, and urgent requests?','expectations'));
+ setHidden('access_approval', qa('Who would provide instructions, approve work, and arrange system access?','access'));
+ setHidden('budget', section([
+   ['What budget range have you planned?','budget'],
+   ['How flexible is the budget?','flexibility']
+ ]));
+ setHidden('hours', qa('Estimated workload','hours'));
+ setHidden('start_date', qa('Ideal start date','start_date'));
+ setHidden('additional_notes', section([
+   ['What working arrangement are you considering?','engagement'],
+   ['How much direction do you prefer to provide?','direction'],
+   ['Meeting preference','meetings'],
+   ['Required time-zone overlap / working hours','overlap'],
+   ['Anything else I should know?','anything_else']
+ ]));
+ status.className='status';status.textContent='Sending your answers…';button.disabled=true;button.textContent='Sending…';
+ emailjs.sendForm('service_l4ixmrw','template_c636h41',form).then(()=>{
+   status.className='status success';status.textContent='Thank you — your discovery form has been submitted. I’ll review your answers and follow up by email.';
+   form.reset();form.querySelectorAll('[data-emailjs-generated="true"]').forEach(el=>el.remove());button.disabled=false;button.textContent='Submit Discovery Form';
+ }).catch((err)=>{
+   console.error('EmailJS submission failed:',err);status.className='status error';status.textContent='We could not submit the form right now. Please try again or email riccaneuda38@gmail.com.';
+   form.querySelectorAll('[data-emailjs-generated="true"]').forEach(el=>el.remove());button.disabled=false;button.textContent='Submit Discovery Form';
+ });
 });
 </script>
 </body></html>
