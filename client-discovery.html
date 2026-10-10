@@ -83,16 +83,76 @@
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 <script>
 (function(){ emailjs.init("_a6T9vTgeLEpDgJR0"); })();
-const form=document.getElementById('discovery-form');
-form.addEventListener('submit',function(e){
- e.preventDefault();
- const status=document.getElementById('form-status'); const button=document.getElementById('submit-button');
- const fd=new FormData(form); const lines=[];
- const labels={company:'Business / team',role:'Role',website:'Website',team_size:'Team size',market:'Market served',tools:'Current tools',services:'Requested support',task_details:'Specific tasks/projects',bottlenecks:'Pain points and bottlenecks',tried:'What they tried',first_fix:'First priority to fix',goals:'90-day goals',priority:'Top priority',urgency:'Desired start timing',success:'Definition of success',engagement:'Preferred engagement',direction:'Preferred working style',updates:'Update frequency',communication:'Communication preference',meetings:'Meeting preference',overlap:'Time-zone overlap',expectations:'Expectations / response times / approvals',access:'Instructions, approvals and access owner',budget:'Budget range',flexibility:'Budget flexibility',hours:'Estimated workload',start_date:'Ideal start date',anything_else:'Additional notes'};
- for(const [key,label] of Object.entries(labels)){const vals=fd.getAll(key); const value=vals.filter(v=>String(v).trim()).join(', '); if(value) lines.push(label+': '+value);}
- const messageField=document.createElement('input'); messageField.type='hidden'; messageField.name='message'; messageField.value=lines.join('\n\n'); form.appendChild(messageField);
- status.className='status';status.textContent='Sending your answers…';button.disabled=true;button.textContent='Sending…';
- emailjs.sendForm('service_l4ixmrw','template_c636h41',form).then(()=>{status.className='status success';status.textContent='Thank you — your discovery form has been submitted. I’ll review your answers and follow up by email.';form.reset();messageField.remove();button.disabled=false;button.textContent='Submit Discovery Form';}).catch((err)=>{console.error(err);status.className='status error';status.textContent='We could not submit the form right now. Please try again or email riccaneuda38@gmail.com.';messageField.remove();button.disabled=false;button.textContent='Submit Discovery Form';});
+const form = document.getElementById('discovery-form');
+form.addEventListener('submit', function(e) {
+  e.preventDefault();
+  const status = document.getElementById('form-status');
+  const button = document.getElementById('submit-button');
+  const fd = new FormData(form);
+  const answer = (name) => {
+    const values = fd.getAll(name).map(v => String(v).trim()).filter(Boolean);
+    return values.length ? values.join(', ') : 'Not answered';
+  };
+  const qa = (question, name) => question + '\n' + answer(name);
+  const params = {
+    name: answer('name'),
+    email: answer('email'),
+    company_name: answer('company'),
+    website: qa('Website or main social profile:', 'website'),
+    role: qa('Your role:', 'role'),
+    team_size: qa('Team size:', 'team_size'),
+    market: qa('Where is your business based / which market do you serve?', 'market'),
+    current_tools: qa('What tools or platforms do you currently use?', 'tools'),
+    support_needed: [
+      qa('Which areas would you like support with? (Select all that apply)', 'services'),
+      qa('What specific tasks, projects, or responsibilities would you like support with?', 'task_details')
+    ].join('\n\n'),
+    pain_points: qa('What is taking too much time, getting delayed, falling through the cracks, or being repeated manually?', 'bottlenecks'),
+    previous_attempts: qa('What have you already tried, and what is still not working?', 'tried'),
+    goals: [
+      qa('What would you like to achieve over the next 90 days?', 'goals'),
+      qa('What is your top priority?', 'priority'),
+      qa('When would you like to start?', 'urgency'),
+      qa('What would make this engagement successful for you?', 'success'),
+      qa('If we could fix one thing first, what would make the biggest difference?', 'first_fix')
+    ].join('\n\n'),
+    communication: qa('Preferred communication:', 'communication'),
+    updates: qa('Preferred update frequency:', 'updates'),
+    expectations: qa('What are your expectations around response times, deadlines, availability, approvals, and urgent requests?', 'expectations'),
+    access_approval: qa('Who would provide instructions, approve work, and arrange system access?', 'access'),
+    budget: [
+      qa('What budget range have you planned?', 'budget'),
+      qa('How flexible is the budget?', 'flexibility')
+    ].join('\n\n'),
+    hours: [
+      qa('Estimated workload:', 'hours'),
+      qa('Preferred engagement:', 'engagement'),
+      qa('Preferred working style:', 'direction'),
+      qa('Meeting preference:', 'meetings'),
+      qa('Required time-zone overlap / working hours:', 'overlap')
+    ].join('\n\n'),
+    start_date: qa('Ideal start date:', 'start_date'),
+    additional_notes: qa('Anything else I should know?', 'anything_else')
+  };
+  status.className = 'status';
+  status.textContent = 'Sending your answers…';
+  button.disabled = true;
+  button.textContent = 'Sending…';
+  emailjs.send('service_l4ixmrw', 'template_c636h41', params)
+    .then(() => {
+      status.className = 'status success';
+      status.textContent = 'Thank you — your discovery form has been submitted. I’ll review your answers and follow up by email.';
+      form.reset();
+      button.disabled = false;
+      button.textContent = 'Submit Discovery Form';
+    })
+    .catch((err) => {
+      console.error('EmailJS submission error:', err);
+      status.className = 'status error';
+      status.textContent = 'We could not submit the form right now. Please try again or email riccaneuda38@gmail.com.';
+      button.disabled = false;
+      button.textContent = 'Submit Discovery Form';
+    });
 });
 </script>
 </body></html>
