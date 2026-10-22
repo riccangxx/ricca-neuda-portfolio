@@ -10,37 +10,11 @@
 <style>
 :root{--bg:#faf8f4;--surface:#fff;--text:#182238;--muted:#657087;--accent:#5683bf;--accent-dark:#315f9b;--border:#dce3ec;--soft:#eef4fb;--shadow:0 16px 45px rgba(27,53,86,.08)}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,Arial,sans-serif;line-height:1.6}a{color:var(--accent-dark)}header{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:18px max(5vw,20px);background:rgba(250,248,244,.96);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:10} .logo{font-weight:800;letter-spacing:.12em;text-decoration:none;color:var(--text);font-size:.9rem}nav{display:flex;align-items:center;gap:22px;flex-wrap:wrap}nav a{text-decoration:none;color:var(--text);font-size:.92rem}nav a.cta,.button{background:var(--accent);color:#fff;border:0;border-radius:10px;padding:12px 18px;font-weight:700;text-decoration:none;cursor:pointer}main{max-width:960px;margin:0 auto;padding:54px 20px 80px}.eyebrow{font:500 .75rem 'Roboto Mono',monospace;letter-spacing:.13em;text-transform:uppercase;color:var(--accent-dark)}h1,h2,h3{font-family:'Playfair Display',Georgia,serif;line-height:1.2}h1{font-size:clamp(2.25rem,5vw,3.7rem);margin:.7rem 0 1rem;max-width:800px}h2{font-size:1.55rem;margin:0 0 8px}p{color:var(--muted)}.intro{font-size:1.05rem;max-width:760px}.callout{background:var(--soft);border:1px solid #d8e5f5;border-radius:16px;padding:18px 20px;margin:26px 0}.form-shell{background:var(--surface);border:1px solid var(--border);border-radius:22px;box-shadow:var(--shadow);padding:clamp(18px,4vw,38px)}.form-section{padding:26px 0;border-bottom:1px solid var(--border)}.form-section:first-child{padding-top:0}.form-section:last-of-type{border-bottom:0}.section-head{display:flex;gap:14px;align-items:flex-start;margin-bottom:18px}.num{flex:0 0 34px;height:34px;border-radius:10px;background:var(--soft);color:var(--accent-dark);display:grid;place-items:center;font-weight:800}.section-head p{margin:6px 0 0;font-size:.92rem}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.field{display:flex;flex-direction:column;gap:7px;min-width:0}.field.full{grid-column:1/-1}label,.label{font-weight:650;font-size:.9rem}small,.hint{color:var(--muted);font-size:.82rem}input,select,textarea{font:inherit;color:var(--text);background:#fff;border:1px solid #cfd8e5;border-radius:9px;padding:12px;width:100%;min-width:0}textarea{min-height:104px;resize:vertical}input:focus,select:focus,textarea:focus{outline:3px solid #dceafb;border-color:var(--accent)}.checks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 16px;margin-top:10px}.check{display:flex;align-items:flex-start;gap:9px;font-size:.9rem;font-weight:450}.check input{width:17px;height:17px;margin-top:4px;flex:0 0 auto;accent-color:var(--accent)}.radio-row{display:flex;flex-wrap:wrap;gap:10px}.radio-row .check{border:1px solid var(--border);border-radius:10px;padding:10px 12px;flex:1 1 170px}.note{background:#fbfaf7;border:1px solid var(--border);border-radius:10px;padding:12px;font-size:.85rem;color:var(--muted)}.submit-row{padding-top:24px;display:flex;gap:14px;align-items:center;flex-wrap:wrap}.submit-row .button{font:inherit;font-weight:750}.privacy{font-size:.82rem;max-width:600px;margin:12px 0 0}.status{font-weight:650;margin-top:12px}.status.error{color:#a52b2b}.status.success{color:#226a49}footer{text-align:center;border-top:1px solid var(--border);padding:26px 18px;color:var(--muted);font-size:.88rem}footer a{text-decoration:none}@media(max-width:700px){header{align-items:flex-start;flex-direction:column}nav{gap:12px}.grid,.checks{grid-template-columns:1fr}main{padding-top:35px}.form-shell{padding:18px}.section-head{gap:10px}}
-
-/* CONSISTENT SITE-WIDE STICKY HEADER + EXPLORE MENU */
-header {
-  position: sticky !important;
-  top: 0;
-  z-index: 1000;
-  background: var(--bg, #faf8f4);
-  background: color-mix(in srgb, var(--bg, #faf8f4) 94%, transparent);
-  -webkit-backdrop-filter: blur(14px);
-  backdrop-filter: blur(14px);
-  border-bottom: 1px solid var(--border, #e5e7eb);
-  box-shadow: 0 4px 18px rgba(15, 23, 42, .06);
-}
-html { scroll-padding-top: 112px; scroll-behavior: smooth; }
-section[id], [id] { scroll-margin-top: 112px; }
-@media (max-width: 900px) {
-  header { padding:12px 5vw !important; gap:12px; flex-direction:row !important; align-items:center !important; }
-  header nav { display:none !important; }
-  html { scroll-padding-top:82px; }
-  section[id], [id] { scroll-margin-top:82px; }
-}
-
 </style>
-<link rel="icon" href="/favicon.ico" sizes="any">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
-<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+ <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 </head>
 <body>
-<header><a class="logo" href="index.html">RICCA OPERATIONS</a><nav><a href="index.html">Home</a><a href="index.html#services">Services</a><a href="index.html#pricing">Pricing</a><a href="https://calendly.com/ricca-neuda-va/real-estate-support" target="_blank" rel="noopener noreferrer">Book a Call</a></nav>
-</header>
+<header><a class="logo" href="index.html">RICCA OPERATIONS</a><nav><a href="index.html">Home</a><a href="index.html#services">Services</a><a href="index.html#pricing">Pricing</a><a href="https://calendly.com/ricca-neuda-va/real-estate-support" target="_blank" rel="noopener noreferrer">Book a Call</a></nav></header>
 <main>
 <span class="eyebrow">Client discovery · Start here</span>
 <h1>Let’s figure out what your business actually needs.</h1>
@@ -94,10 +68,10 @@ section[id], [id] { scroll-margin-top: 112px; }
 <div class="field full"><label for="expectations">What are your expectations around response times, deadlines, availability, approvals, and urgent requests?</label><textarea id="expectations" name="expectations" placeholder="Include anything that is important to how your team works."></textarea></div>
 <div class="field full"><label for="access">Who would provide instructions, approve work, and arrange system access?</label><textarea id="access" name="access"></textarea></div>
 </div></section>
-<section class="form-section"><div class="section-head"><span class="num">6</span><div><h2>Budget and practical details</h2><p>Your answers help me recommend a realistic scope—not force you into a tier.</p></div></div><div class="grid">
-<div class="field"><label for="budget">What budget range have you planned?</label><select id="budget" name="budget"><option value="">Choose one</option><option>Under $500/month or project budget</option><option>$500–$749/month or project budget</option><option>$750–$1,299/month</option><option>$1,300–$1,799/month</option><option>$1,800–$2,299/month</option><option>$2,300+/month</option><option>Project-based budget (not monthly)</option><option>Not sure yet — recommend an approach</option></select></div>
+<section class="form-section"><div class="section-head"><span class="num">6</span><div><h2>Budget and practical details</h2><p>Choose the support level you’re considering, or select project-based work for a separate quote.</p></div></div><div class="grid">
+<div class="field"><label for="budget">What budget range have you planned?</label><select id="budget" name="budget"><option value="">Choose one</option><option>20 hours per week — $800/month</option><option>40 hours per week — $1,600/month</option><option>Project-based budget (one-time project; quoted separately)</option><option>Not sure yet — recommend an approach</option></select></div>
 <div class="field"><label for="flexibility">How flexible is the budget?</label><select id="flexibility" name="flexibility"><option value="">Choose one</option><option>Fixed budget</option><option>Flexible if scope and value are clear</option><option>Open to phased work</option><option>Need help determining a reasonable budget</option></select></div>
-<div class="field"><label for="hours">Estimated workload</label><select id="hours" name="hours"><option value="">Choose one</option><option>Small one-time task / project</option><option>Under 5 hours per week</option><option>5–10 hours per week</option><option>10–20 hours per week</option><option>20–30 hours per week</option><option>30+ hours per week</option><option>Not sure yet</option></select></div>
+<div class="field"><label for="hours">Estimated workload</label><select id="hours" name="hours"><option value="">Choose one</option><option>20 hours per week</option><option>40 hours per week</option><option>One-time project</option><option>Not sure yet</option></select></div>
 <div class="field"><label for="start_date">Ideal start date</label><input id="start_date" name="start_date" type="date"></div>
 <div class="field full"><label for="anything_else">Anything else I should know?</label><textarea id="anything_else" name="anything_else" placeholder="Constraints, special requirements, or questions."></textarea></div>
 </div></section>
@@ -177,5 +151,4 @@ form.addEventListener('submit',function(e){
  });
 });
 </script>
-
 </body></html>
