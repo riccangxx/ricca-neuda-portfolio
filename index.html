@@ -199,6 +199,44 @@ nav a:hover { transform: scale(1.05); }
 }
 
 
+
+/* CLIENT DISCOVERY QUICK ENTRY */
+.discovery-banner {
+  background: #eef4fc;
+  border-bottom: 1px solid #d8e4f4;
+  padding: 1.1rem 0;
+}
+.discovery-banner-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  max-width: 1160px;
+}
+.discovery-banner-copy {
+  display: flex;
+  flex-direction: column;
+  gap: .15rem;
+  max-width: 760px;
+  line-height: 1.65;
+}
+.discovery-banner-copy strong { color: #172536; font-size: 1rem; }
+.discovery-banner-copy span { color: #52647d; font-size: .95rem; }
+.discovery-banner .cta {
+  flex: 0 0 auto;
+  background: var(--accent);
+  color: #fff;
+  height: auto;
+  min-height: 54px;
+  padding: .9rem 1.8rem;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+@media (max-width: 700px) {
+  .discovery-banner-inner { align-items: flex-start; flex-direction: column; gap: 1rem; }
+  .discovery-banner .cta { white-space: normal; width: 100%; }
+}
+
 /* HERO */
 .hero h1 {
   color: #1a1a1a;
@@ -1873,6 +1911,17 @@ nav a.cta {
 
 
 
+
+<!-- CLIENT DISCOVERY QUICK ENTRY -->
+<section class="discovery-banner" aria-label="Client discovery invitation">
+  <div class="container discovery-banner-inner">
+    <div class="discovery-banner-copy">
+      <strong>Not sure which support package fits your business?</strong>
+      <span>Tell me what’s slowing you down, what you want to achieve, and how you prefer to work. I’ll help you explore a practical fit.</span>
+    </div>
+    <a class="cta" href="client-discovery.html">Tell Me What You Need →</a>
+  </div>
+</section>
 
 <!-- HERO -->
 <section class="hero">
