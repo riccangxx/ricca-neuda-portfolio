@@ -1836,9 +1836,43 @@ nav a.cta {
   .audit-box { flex-direction: column; align-items: flex-start; }
 }
 
+
+/* SITE-WIDE STICKY HEADER + SECTION NAVIGATION */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: var(--bg);
+  background: color-mix(in srgb, var(--bg) 92%, transparent);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 4px 18px rgba(15, 23, 42, 0.06);
+}
+html {
+  scroll-padding-top: 110px;
+}
+section[id],
+[id] {
+  scroll-margin-top: 110px;
+}
+@media (max-width: 768px) {
+  header {
+    top: 0;
+  }
+  html {
+    scroll-padding-top: 84px;
+  }
+  section[id],
+  [id] {
+    scroll-margin-top: 84px;
+  }
+}
+
 </style>
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
 </head>
 <body>
@@ -2641,23 +2675,23 @@ slides.forEach(slide => {
 function toggleExploreMenu() {
   const panel = document.getElementById('explorePanel');
   const overlay = document.getElementById('exploreOverlay');
-  const button = document.querySelector('.explore-toggle');
+  const buttons = document.querySelectorAll('.explore-toggle, .hamburger');
   if (!panel) return;
   const open = !panel.classList.contains('show');
   panel.classList.toggle('show', open);
   overlay?.classList.toggle('show', open);
   panel.setAttribute('aria-hidden', String(!open));
-  button?.setAttribute('aria-expanded', String(open));
+  buttons.forEach(button => button.setAttribute('aria-expanded', String(open)));
   document.body.style.overflow = open ? 'hidden' : '';
 }
 function closeExploreMenu() {
   const panel = document.getElementById('explorePanel');
   const overlay = document.getElementById('exploreOverlay');
-  const button = document.querySelector('.explore-toggle');
+  const buttons = document.querySelectorAll('.explore-toggle, .hamburger');
   panel?.classList.remove('show');
   overlay?.classList.remove('show');
   panel?.setAttribute('aria-hidden', 'true');
-  button?.setAttribute('aria-expanded', 'false');
+  buttons.forEach(button => button.setAttribute('aria-expanded', 'false'));
   document.body.style.overflow = '';
 }
 document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeExploreMenu(); });
