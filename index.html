@@ -446,13 +446,22 @@ nav a:hover { transform: scale(1.05); }
 }
 
 /* TOOLS & SKILLS */
-.tools-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1rem; }
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+  margin-top: 2rem;
+  align-items: stretch;
+}
+
 .tools-category {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 16px;
-  padding: 1rem;
+  padding: 1.4rem;
   text-align: left;
+  min-width: 0;
+  border-radius: 18px;
 
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
@@ -463,7 +472,33 @@ nav a:hover { transform: scale(1.05); }
   box-shadow: 0 14px 30px rgba(0,0,0,0.08);
 }
 
-.tools-category span.tool-pill { margin-bottom: .3rem; display: inline-block; }
+.tools-category > strong {
+  display: block;
+  font-size: 1rem;
+  line-height: 1.4;
+  margin-bottom: .8rem;
+}
+.tools-category hr {
+  border: 0;
+  border-top: 1px solid var(--border);
+  margin: 0 0 .9rem;
+}
+.tools-category span.tool-pill {
+  margin: 0 .25rem .4rem 0;
+  display: inline-flex;
+  align-items: center;
+  max-width: 100%;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  line-height: 1.4;
+}
+@media (max-width: 900px) {
+  .tools-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 600px) {
+  .tools-grid { grid-template-columns: 1fr; gap: 1rem; }
+  .tools-category { padding: 1.25rem; }
+}
 
 /* FOOTER */
 /* =========================================
@@ -1227,9 +1262,11 @@ nav a.cta {
 
 .pricing-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
   align-items: stretch;
+  max-width: 960px;
+  margin: 2rem auto 0;
 }
 
 .pricing-card {
@@ -1714,34 +1751,55 @@ nav a.cta {
   }
 }
 
-/* CLIENT DISCOVERY PROMINENCE */
-.discovery-banner {
-  background: #eef4fb;
-  border-top: 1px solid #dce7f5;
-  border-bottom: 1px solid #dce7f5;
-  padding: 1.1rem 0;
+.pricing-note { margin-top: 1rem; color: var(--muted); font-size: .92rem; }
+
+.pricing-note { margin-top: 1rem; color: var(--muted); font-size: .92rem; }
+
+/* PRICING LAYOUT REFINEMENT */
+.pricing-section > .container > h2 {
+  max-width: 900px;
 }
-.discovery-banner-inner {
-  display: flex; align-items: center; justify-content: space-between; gap: 1.5rem;
+.pricing-intro {
+  max-width: 760px;
+  margin-bottom: 1.5rem;
 }
-.discovery-banner-copy { flex: 1; }
-.discovery-banner-copy strong { display: block; color: #172536; font-size: 1.03rem; line-height: 1.4; }
-.discovery-banner-copy span { display: block; color: #526174; font-size: .92rem; margin-top: .2rem; }
-.discovery-banner .cta { background: #2563EB; color: #fff; flex-shrink: 0; }
-.discovery-banner .cta:hover { background: #1D4ED8; }
-.hero .buttons { display: flex; align-items: center; gap: .85rem; flex-wrap: wrap; }
-.hero .discovery-cta { background: #2563EB; color: #fff; }
-.hero .discovery-cta:hover { background: #1D4ED8; }
-@media (max-width: 650px) {
-  .discovery-banner-inner { align-items: stretch; flex-direction: column; gap: .85rem; }
-  .discovery-banner .cta { width: 100%; }
-  .hero .buttons { align-items: stretch; flex-direction: column; }
-  .hero .buttons a { width: 100%; }
+.pricing-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  max-width: 960px;
+  margin: 2rem auto 0;
+  gap: 1.5rem;
+}
+.pricing-card {
+  padding: 1.75rem;
+  min-width: 0;
+}
+.pricing-card ul {
+  font-size: .9rem;
+  line-height: 1.6;
+}
+.pricing-card li {
+  margin-bottom: .45rem;
+}
+.pricing-note {
+  margin-top: auto;
+  padding-top: .75rem;
+  font-size: .9rem;
+  color: var(--muted);
+}
+.custom-package,
+.audit-box {
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (max-width: 760px) {
+  .pricing-grid { grid-template-columns: 1fr; max-width: 520px; }
+  .pricing-section h2 { font-size: clamp(1.8rem, 6vw, 2.4rem); }
+  .audit-box { flex-direction: column; align-items: flex-start; }
 }
 
 </style>
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 </head>
 <body>
 
@@ -1816,17 +1874,6 @@ nav a.cta {
 
 
 
-<!-- CLIENT DISCOVERY QUICK ENTRY -->
-<section class="discovery-banner" aria-label="Client discovery invitation">
-  <div class="container discovery-banner-inner">
-    <div class="discovery-banner-copy">
-      <strong>Not sure which support package fits your business?</strong>
-      <span>Tell me what’s slowing you down, what you want to achieve, and how you prefer to work. I’ll help you explore a practical fit.</span>
-    </div>
-    <a class="cta" href="client-discovery.html">Tell Me What You Need →</a>
-  </div>
-</section>
-
 <!-- HERO -->
 <section class="hero">
   <div class="container hero-grid">
@@ -1849,8 +1896,7 @@ nav a.cta {
       </div>
 
       <div class="buttons">
-        <a href="client-discovery.html" class="cta discovery-cta">Tell Me What You Need</a>
-        <a href="#pricing" class="outline">View Services & Pricing</a>
+        <a href="#pricing" class="cta">View Services & Pricing</a>
         <a href="https://calendly.com/ricca-neuda-va/real-estate-support"
            class="outline" target="_blank" rel="noopener noreferrer">Book a Call</a>
       </div>
@@ -2037,95 +2083,57 @@ nav a.cta {
 
 
 <!-- PRICING -->
-<section id="pricing">
+<section id="pricing" class="pricing-section">
   <div class="container">
     <span class="section-label">Services & Pricing</span>
-    <h2>Choose the level of operational support your business needs.</h2>
+    <h2>Reliable support for the systems behind your real estate business.</h2>
     <p class="pricing-intro">
-      Monthly retainers are designed around dedicated operational capacity — not random tasks.
-      As your systems become more efficient, the goal is to create more leverage, not more busywork.
+      Choose the level of dedicated weekly support that fits your team. Each monthly retainer is built around agreed priorities across CRM, operations, automation, transaction support, and marketing systems.
+      A minimum commitment of 20 hours per week applies to ongoing support.
     </p>
 
     <div class="pricing-grid">
       <div class="pricing-card">
-        <h3>ESSENTIAL OPERATIONS</h3>
-        <div class="price-large">$750 <span>/ month</span></div>
-        <div class="capacity">Up to 10 hours/week</div>
+        <h3>PART-TIME OPERATIONS PARTNER</h3>
+        <div class="price-large">$800 <span>/ month</span></div>
+        <div class="capacity">20 hours per week · Minimum commitment</div>
         <ul>
-          <li>CRM management & database cleanup</li>
-          <li>Contact tagging & segmentation</li>
-          <li>Pipeline & follow-up updates</li>
-          <li>Research & data organization</li>
-          <li>Listing / offer support</li>
-          <li>Transaction coordination support</li>
-          <li>Document & deadline tracking</li>
-          <li>Canva, social & basic email support</li>
+          <li>CRM management, database cleanup and segmentation</li>
+          <li>Lead follow-up, pipeline updates and task tracking</li>
+          <li>Transaction, listing, offer and deadline support</li>
+          <li>Practical Zapier and CRM automation</li>
+          <li>Email campaigns, newsletters and marketing support</li>
+          <li>Research, reporting and workflow documentation</li>
         </ul>
+        <p class="pricing-note">Best for teams that need consistent support across their key operations.</p>
       </div>
 
       <div class="pricing-card featured">
-        <span class="pricing-badge">Most Popular</span>
-        <h3>GROWTH OPERATIONS</h3>
-        <div class="price-large">$1,300 <span>/ month</span></div>
-        <div class="capacity">Up to 20 hours/week</div>
+        <span class="pricing-badge">Dedicated Support</span>
+        <h3>FULL-TIME OPERATIONS PARTNER</h3>
+        <div class="price-large">$1,600 <span>/ month</span></div>
+        <div class="capacity">40 hours per week</div>
         <ul>
-          <li>Everything in Essential</li>
-          <li>CRM / lead / pipeline management</li>
-          <li>CRM reporting & database maintenance</li>
-          <li>Zapier & CRM automation</li>
-          <li>Lead routing & automated task creation</li>
-          <li>Notifications & form-to-CRM workflows</li>
-          <li>Email campaigns & lead nurturing</li>
-          <li>ManyChat & social scheduling</li>
-          <li>SOP documentation</li>
+          <li>Everything in Part-Time Operations, with more weekly capacity</li>
+          <li>Daily CRM, lead management and follow-up coordination</li>
+          <li>Expanded transaction and team operations support</li>
+          <li>Build, maintain and improve automation workflows</li>
+          <li>Email marketing, social content and website updates</li>
+          <li>Reporting, SOPs and ongoing process improvement</li>
         </ul>
-      </div>
-
-      <div class="pricing-card">
-        <h3>OPERATIONS + AUTOMATION</h3>
-        <div class="price-large">$1,800 <span>/ month</span></div>
-        <div class="capacity">Up to 30 hours/week</div>
-        <ul>
-          <li>Everything in Growth</li>
-          <li>Advanced Zapier workflows</li>
-          <li>AI-assisted business processes</li>
-          <li>Lead capture & automated follow-up</li>
-          <li>Cross-platform integrations</li>
-          <li>ManyChat & email automation</li>
-          <li>Website, forms & landing pages</li>
-          <li>Website-to-CRM integrations</li>
-          <li>GitHub-based projects</li>
-          <li>Workflow optimization</li>
-        </ul>
-      </div>
-
-      <div class="pricing-card">
-        <h3>FULL OPERATIONS BACKBONE</h3>
-        <div class="price-large">$2,300 <span>/ month</span></div>
-        <div class="capacity">Up to 40 hours/week</div>
-        <ul>
-          <li>Comprehensive CRM & lead management</li>
-          <li>Transactions, listings & team operations</li>
-          <li>AI + automation systems</li>
-          <li>Email, social & marketing automation</li>
-          <li>Website & digital systems</li>
-          <li>Reporting & operational oversight</li>
-          <li>SOPs & process improvement</li>
-          <li>Ongoing system optimization</li>
-        </ul>
+        <p class="pricing-note">Best for teams looking for a dependable, full-time operations partner.</p>
       </div>
     </div>
 
     <div class="custom-package">
-      <strong>CUSTOM OPERATIONS PACKAGE — starting at $750/month</strong><br>
-      Combine CRM, automation, transaction coordination, marketing, website, AI, and other operational
-      support based on your business needs and workflow complexity.
+      <strong>NEED A DIFFERENT SCOPE?</strong><br>
+      One-time projects or specialized automation builds can be scoped and quoted separately after a discovery conversation. Ongoing support starts at 20 hours per week.
     </div>
 
     <div class="audit-box">
       <div>
-        <h3>Not sure what you actually need?</h3>
-        <p>Book a conversation and we can identify where your business is losing time, what can be organized or automated, and what level of support makes sense.</p>
+        <h3>Not sure which level fits?</h3>
+        <p>Let’s discuss your priorities, current systems, and workflow challenges to define a practical scope of support.</p>
       </div>
       <a href="client-discovery.html" class="outline">Start Client Discovery</a>
       <a href="https://calendly.com/ricca-neuda-va/real-estate-support"
@@ -2153,14 +2161,20 @@ nav a.cta {
         <span class="tool-pill">SkySlope</span>
         <span class="tool-pill">CRMLS</span>
         <span class="tool-pill">UtahRealEstate.com</span>
+        <span class="tool-pill">Matrix / VIREB</span>
+        <span class="tool-pill">PropTx</span>
+        <span class="tool-pill">Realm</span>
+        <span class="tool-pill">Homebot</span>
+        <span class="tool-pill">ZipForms</span>
+        <span class="tool-pill">DocuSign</span>
         <span class="tool-pill">Prime Tracers</span>
       </div>
 
       <div class="tools-category">
         <strong>Automation & AI</strong><hr>
+        <span class="tool-pill">ChatGPT</span>
         <span class="tool-pill">Zapier</span>
         <span class="tool-pill">ManyChat</span>
-        <span class="tool-pill">AI Tools</span>
         <span class="tool-pill">CRM Automation</span>
         <span class="tool-pill">Workflow Design</span>
       </div>
@@ -2176,12 +2190,37 @@ nav a.cta {
       </div>
 
       <div class="tools-category">
-        <strong>Operations & Digital</strong><hr>
+        <strong>Project & Task Management</strong><hr>
         <span class="tool-pill">Trello</span>
+        <span class="tool-pill">Asana</span>
+        <span class="tool-pill">Basecamp</span>
+        <span class="tool-pill">Notion</span>
         <span class="tool-pill">Google Workspace</span>
         <span class="tool-pill">Google Sheets</span>
+        <span class="tool-pill">Google Drive</span>
+        <span class="tool-pill">Google Docs</span>
+        <span class="tool-pill">Google Calendar</span>
+        <span class="tool-pill">Microsoft Office</span>
+      </div>
+
+      <div class="tools-category">
+        <strong>Communication & Scheduling</strong><hr>
+        <span class="tool-pill">Slack</span>
+        <span class="tool-pill">WeChat</span>
+        <span class="tool-pill">Google Chat</span>
+        <span class="tool-pill">WhatsApp</span>
+        <span class="tool-pill">Zoom</span>
+        <span class="tool-pill">Microsoft Teams</span>
         <span class="tool-pill">Calendly</span>
+      </div>
+
+      <div class="tools-category">
+        <strong>Web, Data & Analytics</strong><hr>
+        <span class="tool-pill">Google Apps Script</span>
         <span class="tool-pill">GitHub</span>
+        <span class="tool-pill">Telelisting</span>
+        <span class="tool-pill">Google Analytics</span>
+        <span class="tool-pill">Google Search Console</span>
         <span class="tool-pill">Website Management</span>
       </div>
     </div>
