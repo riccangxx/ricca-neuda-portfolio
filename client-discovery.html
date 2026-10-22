@@ -25,37 +25,12 @@ header {
 }
 html { scroll-padding-top: 112px; scroll-behavior: smooth; }
 section[id], [id] { scroll-margin-top: 112px; }
-.site-explore-menu {
-  position: fixed; top: 92px; right: clamp(12px, 4vw, 48px); z-index: 1100;
-  width: min(340px, calc(100vw - 24px)); max-height: calc(100vh - 112px);
-  overflow-y: auto; padding: 18px; background: var(--surface, #fff);
-  color: var(--text, #2d2d2d); border: 1px solid var(--border, #e5e7eb);
-  border-radius: 16px; box-shadow: 0 16px 44px rgba(15, 23, 42, .18);
-}
-.site-explore-menu[hidden] { display: none !important; }
-.site-explore-menu a {
-  display:block; padding:10px 12px; margin:3px 0; color:var(--text, #2d2d2d);
-  text-decoration:none; border-radius:9px; font-size:15px;
-}
-.site-explore-menu a:hover, .site-explore-menu a[aria-current="page"] {
-  background:var(--soft-accent, #eff6ff); color:var(--accent-dark, #1d4ed8);
-}
-.site-menu-toggle {
-  border:1px solid var(--border, #e5e7eb); background:var(--surface, #fff);
-  color:var(--text, #2d2d2d); border-radius:10px; padding:10px 13px;
-  font:inherit; font-size:15px; cursor:pointer; display:inline-flex;
-  align-items:center; gap:8px; flex:0 0 auto;
-}
-.site-menu-toggle .menu-glyph { font-size:19px; line-height:1; }
 @media (max-width: 900px) {
   header { padding:12px 5vw !important; gap:12px; flex-direction:row !important; align-items:center !important; }
   header nav { display:none !important; }
-  .site-menu-toggle { margin-left:auto; }
   html { scroll-padding-top:82px; }
   section[id], [id] { scroll-margin-top:82px; }
-  .site-explore-menu { top:74px; }
 }
-@media (min-width:901px) { .site-explore-menu { top:88px; } }
 
 </style>
 <link rel="icon" href="/favicon.ico" sizes="any">
@@ -64,7 +39,7 @@ section[id], [id] { scroll-margin-top: 112px; }
 <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
 </head>
 <body>
-<header><a class="logo" href="index.html">RICCA OPERATIONS</a><nav><a href="index.html">Home</a><a href="index.html#services">Services</a><a href="index.html#pricing">Pricing</a><a href="https://calendly.com/ricca-neuda-va/real-estate-support" target="_blank" rel="noopener noreferrer">Book a Call</a></nav><button class="site-menu-toggle" type="button" aria-expanded="false" aria-controls="site-explore-menu"><span class="menu-glyph" aria-hidden="true">☰</span><span>Explore</span></button>
+<header><a class="logo" href="index.html">RICCA OPERATIONS</a><nav><a href="index.html">Home</a><a href="index.html#services">Services</a><a href="index.html#pricing">Pricing</a><a href="https://calendly.com/ricca-neuda-va/real-estate-support" target="_blank" rel="noopener noreferrer">Book a Call</a></nav>
 </header>
 <main>
 <span class="eyebrow">Client discovery · Start here</span>
@@ -201,40 +176,6 @@ form.addEventListener('submit',function(e){
    form.querySelectorAll('[data-emailjs-generated="true"]').forEach(el=>el.remove());button.disabled=false;button.textContent='Submit Discovery Form';
  });
 });
-</script>
-
-<nav class="site-explore-menu" id="site-explore-menu" aria-label="Explore pages" hidden>
-  <strong style="display:block;padding:4px 12px 10px;">Explore the website</strong>
-  <a href="/">Home</a>
-  <a href="/about.html">About Ricca</a>
-  <a href="/real-estate-operations.html">Real Estate Operations</a>
-  <a href="/crm-management.html">CRM Management</a>
-  <a href="/real-estate-automation.html">Real Estate Automation</a>
-  <a href="/transaction-coordination.html">Transaction Coordination</a>
-  <a href="/client-discovery.html">Client Discovery</a>
-</nav>
-<script>
-(() => {
-  const toggle = document.querySelector('.site-menu-toggle');
-  const menu = document.getElementById('site-explore-menu');
-  if (!toggle || !menu) return;
-  const closeMenu = () => {
-    menu.hidden = true;
-    toggle.setAttribute('aria-expanded', 'false');
-  };
-  toggle.addEventListener('click', () => {
-    const open = toggle.getAttribute('aria-expanded') !== 'true';
-    toggle.setAttribute('aria-expanded', String(open));
-    menu.hidden = !open;
-  });
-  document.addEventListener('click', event => {
-    if (!menu.contains(event.target) && !toggle.contains(event.target)) closeMenu();
-  });
-  document.addEventListener('keydown', event => {
-    if (event.key === 'Escape') closeMenu();
-  });
-  menu.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
-})();
 </script>
 
 </body></html>
